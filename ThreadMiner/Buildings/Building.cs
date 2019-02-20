@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ThreadMiner
 {
-    abstract class Building
+    public abstract class Building
     {
         private int health;
         private int cost;

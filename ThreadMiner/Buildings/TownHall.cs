@@ -9,12 +9,19 @@ namespace ThreadMiner
 {
     class TownHall : Building
     {
+        float currGold;
+
         public TownHall(GameWorld currentGame, Vector2 pos, string spriteName) : base(500, 0, currentGame, pos, spriteName)
         {
         }
 
         public override void Update(GameTime gameTime)
         {
+        }
+        public float DepositGold(float amount)
+        {
+            currGold += amount;
+            return amount;
         }
     }
 }

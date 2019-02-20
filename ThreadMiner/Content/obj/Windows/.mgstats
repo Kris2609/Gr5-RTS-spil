@@ -1,6 +1,7 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/GoldMine.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/GoldMine.xnb","TextureProcessor","Texture2DContent",7603,262229,0.2129076
-"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/House.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/House.xnb","TextureProcessor","Texture2DContent",32651,589909,0.0329816
-"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Smoke.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/spritesheet_Smoke.xnb","TextureProcessor","Texture2DContent",8620,409685,0.0413485
-"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Walk_Mine.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/spritesheet_Walk_Mine.xnb","TextureProcessor","Texture2DContent",30418,2359381,0.1189317
-"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Townhall.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Townhall.xnb","TextureProcessor","Texture2DContent",31628,1048661,0.0639631
+"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/House.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/House.xnb","TextureProcessor","Texture2DContent",32651,589909,0.2538554
+"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Mine.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Mine.xnb","TextureProcessor","Texture2DContent",7603,262229,0.0949451
+"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Smoke.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/spritesheet_Smoke.xnb","TextureProcessor","Texture2DContent",8620,409685,0.0569702
+"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Walk_Mine.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/spritesheet_Walk_Mine.xnb","TextureProcessor","Texture2DContent",30418,2359381,0.1129325
+"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Warrior.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/spritesheet_Warrior.xnb","TextureProcessor","Texture2DContent",72907,2359381,0.3028251
+"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/TownHall.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/TownHall.xnb","TextureProcessor","Texture2DContent",31628,1048661,0.0599655

@@ -1,1 +1,7 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/House.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/House.xnb","TextureProcessor","Texture2DContent",32651,589909,0.258691
+"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Mine.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/Mine.xnb","TextureProcessor","Texture2DContent",7603,262229,0.1958872
+"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Smoke.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/spritesheet_Smoke.xnb","TextureProcessor","Texture2DContent",8620,409685,0.0519785
+"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Walk_Mine.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/spritesheet_Walk_Mine.xnb","TextureProcessor","Texture2DContent",30418,2359381,0.0853241
+"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Warrior.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/spritesheet_Warrior.xnb","TextureProcessor","Texture2DContent",72907,2359381,0.3577931
+"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/TownHall.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/TownHall.xnb","TextureProcessor","Texture2DContent",31628,1048661,0.0529678

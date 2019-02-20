@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,8 @@ namespace ThreadMiner
         int camMoveSpeed = 500;
 
         MouseState oldMouseState;
+
+        Texture2D workerOutline;
         Vector2 mousePos;
 
         public InputManager(GameWorld gameWorld)
@@ -36,6 +39,8 @@ namespace ThreadMiner
             keyboardState = Keyboard.GetState();
             scrollVal = mouseState.ScrollWheelValue;
             ControlCamera(gameTime, gameWorld.cam);
+
+            Placeworker();
 
             oldScrollVal = scrollVal;
             oldMouseState = mouseState;
@@ -57,6 +62,17 @@ namespace ThreadMiner
             cam.camPos += camMove;
 
             cam.CalcFullMatrix();
+        }
+
+        void Placeworker(Camera cam)
+        {
+            if (mouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton != oldMouseState.LeftButton)
+            {
+                Vector2 vec = (mousePos - GraphicInfo.HalfSize) * (1f / cam.Zoom) + cam.camPos;
+                Worker worker = new Worker(this, vec, 30, Worker.WorkerJob.Mine);
+
+                gameWorld.units.Add(worker);
+            }
         }
     }
 }

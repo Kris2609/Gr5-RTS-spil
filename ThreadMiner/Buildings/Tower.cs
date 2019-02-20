@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ThreadMiner.Building
+namespace ThreadMiner
 {
-    class Tower
+    class Tower : Building
     {
         protected int cost;//how much the tower cost to build
         protected int damage;//damage the tower does to the enemy
@@ -28,14 +28,13 @@ namespace ThreadMiner.Building
         /// <param name="content"></param>
         /// <param name="position"></param>
         /// <param name="bulletTexture"></param>
-        public Tower(string textureName, ContentManager content, Vector2 position)
+        
+        public Tower(GameWorld currentGame, Vector2 pos, string spriteName) : base(150, 90, currentGame, pos, spriteName)
         {
-            radius = 200;
-            damage = 5;
-            cost = 90;
-            
-
+            this.radius = 200;
+            this.damage = 5;
         }
+
         /// <summary>
         /// allows the tower to have a target 
         /// </summary>
@@ -66,8 +65,10 @@ namespace ThreadMiner.Building
         {
             get { return radius; }
         }
-        
-       
+
+        public override void Update(GameTime gameTime)
+        {
+        }
     }
 
     

@@ -4,20 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 
-namespace ThreadMiner.Building
+namespace ThreadMiner
 {
-    class Mine
+    class Mine : Building
     {
         private int gold;
         private float worktime;
         private static int workersInMine = 5;
-        
-        
-       
-        
-        
-        public Mine()
+
+        public Mine(int health, int cost, GameWorld currentGame, Vector2 pos, string spriteName) : base(100, 100, currentGame, pos, spriteName)
+        {
+
+        }
+
+        public void MineGold()
         {
             this.gold = 10000;
             this.worktime = 5;
@@ -38,6 +40,11 @@ namespace ThreadMiner.Building
                 
             }
             
+        }
+
+
+        public override void Update(GameTime gameTime)
+        {
         }
     }
 }

@@ -41,8 +41,8 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Buildings\AllBuilding.cs" />
     <Compile Include="Buildings\Barrack.cs" />
+    <Compile Include="Buildings\Building.cs" />
     <Compile Include="Buildings\House.cs" />
     <Compile Include="Buildings\Mine.cs" />
     <Compile Include="Buildings\Tower.cs" />

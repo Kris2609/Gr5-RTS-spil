@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace ThreadMiner
 {
@@ -11,6 +12,9 @@ namespace ThreadMiner
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
+        List<Unit> units;
+        List<Building> buildings;
 
         public GameWorld()
         {
@@ -39,8 +43,11 @@ namespace ThreadMiner
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
+            buildings = new List<Building>();
+            units = new List<Unit>();
+
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            buildings.Add(new TownHall(this, Vector2.Zero, "Townhall"));
 
             // TODO: use this.Content to load your game content here
         }
@@ -64,7 +71,14 @@ namespace ThreadMiner
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            foreach (Building building in buildings)
+            {
+                building.Update(gameTime);
+            }
+            foreach (Unit unit in units)
+            {
+                unit.Update(gameTime);
+            }
 
             base.Update(gameTime);
         }
@@ -76,10 +90,30 @@ namespace ThreadMiner
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            spriteBatch.Begin();
+            foreach (Building building in buildings)
+            {
+                building.Draw(gameTime, spriteBatch);
+            }
+            spriteBatch.End();
 
-            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            foreach (Unit unit in units)
+            {
+                unit.DrawAnimated(gameTime, spriteBatch);
+            }
+            spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+        
+        public static Point V2P(Vector2 V)
+        {
+            return new Point((int)V.X, (int)V.Y);
+        }
+        public static Vector2 P2V(Point V)
+        {
+            return new Vector2(V.X, V.Y);
         }
     }
 }

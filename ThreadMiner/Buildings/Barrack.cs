@@ -3,25 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 
-namespace ThreadMiner.Building
+namespace ThreadMiner
 {
-    class Barrack
+    class Barrack : Building
     {
         private int health;
         private int cost;
         private float trainingTime;
 
-        public Barrack()
+        public Barrack(GameWorld currentGame, Vector2 pos, string spriteName) : base(200, 100, currentGame, pos, spriteName)
         {
-            this.health = 200;
-            this.cost = 100;
             this.trainingTime = 10;
         }
 
         public void trainingUnits()
         {
 
+        }
+
+        public override void Update(GameTime gameTime)
+        {
         }
     }
 }

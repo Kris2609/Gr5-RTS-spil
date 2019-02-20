@@ -52,6 +52,7 @@ namespace ThreadMiner
 
             buildings = new List<Building>();
             buildings.Add(new TownHall(this, Vector2.Zero, "TownHall"));
+            buildings.Add(new Mine(this, new Vector2(0, 500), "Mine"));
             units = new List<Unit>();
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -107,7 +108,7 @@ namespace ThreadMiner
             }
             spriteBatch.End();
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(transformMatrix: cam.Transform, samplerState: SamplerState.PointClamp);
             foreach (Unit unit in units)
             {
                 unit.DrawAnimated(gameTime, spriteBatch);

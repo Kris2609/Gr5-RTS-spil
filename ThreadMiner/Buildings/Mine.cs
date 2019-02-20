@@ -10,18 +10,19 @@ namespace ThreadMiner
 {
     class Mine : Building
     {
-        private int gold;
+        private float gold;
         private float worktime;
         private static int workersInMine = 5;
 
-        public Mine(int health, int cost, GameWorld currentGame, Vector2 pos, string spriteName) : base(100, 100, currentGame, pos, spriteName)
-        {
+        public float GoldLeft { get => gold;}
 
+        public Mine(GameWorld currentGame, Vector2 pos, string spriteName) : base(100, 100, currentGame, pos, spriteName)
+        {
+            this.gold = 10000;
         }
 
         public void MineGold()
         {
-            this.gold = 10000;
             this.worktime = 5;
             Thread mWorker = new Thread(WorkingInMine);
             for (int i = 0; workersInMine > 5; i++)
@@ -45,6 +46,17 @@ namespace ThreadMiner
 
         public override void Update(GameTime gameTime)
         {
+        }
+        
+        public float MineGold(float amount)
+        {
+            float tmp = CalcGold(amount);
+            gold -= tmp;
+            return tmp;
+        }
+        float CalcGold(float amount)
+        {
+            return amount < GoldLeft ? amount : GoldLeft;
         }
     }
 }

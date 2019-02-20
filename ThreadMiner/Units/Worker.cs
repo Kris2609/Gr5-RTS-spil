@@ -18,24 +18,38 @@ namespace ThreadMiner
         WorkerState oldState;
 
         Mine currMine;
+        internal Mine CurrMine { get => currMine; set => currMine = value; }
 
         public float MinePerSec;
         public float currCarry;
         public float carryCap;
 
         bool changedState;
-        private Vector2 targetPos;
 
-        public Worker(GameWorld currentGame, Vector2 pos, int animationFPS) : base("Worker", currentGame, pos, animationFPS)
+
+        public Worker(GameWorld currentGame, Vector2 pos, int animationFPS, WorkerJob job) : base("Worker", currentGame, pos, animationFPS)
         {
+            this.job = job;
+            this.MinePerSec = 10;
+            this.carryCap = 50;
+            spriteSheet = currentGame.Content.Load<Texture2D>("spritesheet_Warrior");
         }
         
-        public void DrawAnimated(GameTime gameTime, SpriteBatch spriteBatch)
+        public override void DrawAnimated(GameTime gameTime, SpriteBatch spriteBatch, int spriteIndex)
         {
             base.DrawAnimated(gameTime, spriteBatch, (int)job);
         }
         public override void Update(GameTime gameTime)
         {
+            if (currMine == null || currMine.GoldLeft >=0)
+            {
+                currMine = (Mine)currentGame.buildings.Find(x => x.GetType() == typeof(Mine) && ((Mine)x).GoldLeft > 0);
+                
+            }
+            else
+            {
+                job = WorkerJob.Idle;
+            }
             changedState = (oldState == state);
 
             if (currCarry < carryCap)
@@ -45,46 +59,42 @@ namespace ThreadMiner
                     if (!Mine(currMine, gameTime))
                     {
                         state = WorkerState.Mining;
+                        //throw new Exception();
                     }
                     else
                     {
                         job = WorkerJob.Idle;
                         state = WorkerState.Idling;
+                        //throw new Exception();
                     }
                 }
                 else
                 {
-                    ValidatePos(currMine);
 
-                    Move(targetPos, gameTime);
+                    Move(currMine.Pos, gameTime);
                     state = WorkerState.Walking;
+                    //throw new Exception();
                 }
             }
             else
             {
-                if (canReach(currentGame.buildings[0])
+                if (canReach(currentGame.buildings[0]))
                 {
                     Deposit((TownHall)currentGame.buildings[0]);
                     state = WorkerState.Idling;
+                    //throw new Exception();
                 }
                 else
                 {
-                    ValidatePos(currentGame.buildings[0]);
 
                     Move(currentGame.buildings[0].Pos, gameTime);
-                    state = WorkerState.Mining;
+                    state = WorkerState.Idling;
+                    //throw new Exception();
                 }
             }
             oldState = state;
         }
-
-        void ValidatePos(Building building)
-        {
-            if (!building.DestinationRectangle.Contains(targetPos))
-            {
-                targetPos = building.Pos;
-            }
-        }
+        
 
         private bool canReach(Building building)
         {

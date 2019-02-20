@@ -12,6 +12,8 @@ namespace ThreadMiner
         public static float HalfSizeX;
         public static float HalfSizeY;
 
+        public static Vector2 HalfSize { get => new Vector2(HalfSizeX, HalfSizeY); }
+
         public Matrix Transform { get; private set; }
         public Matrix ScreenTransform
         {

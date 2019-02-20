@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Townhall.png</SourceFile>
+  <SourceFile>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/TownHall.png</SourceFile>
   <SourceTime>2019-02-20T11:38:25.5843893+01:00</SourceTime>
-  <DestFile>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Townhall.xnb</DestFile>
-  <DestTime>2019-02-20T13:07:16.774165+01:00</DestTime>
+  <DestFile>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/TownHall.xnb</DestFile>
+  <DestTime>2019-02-20T15:44:32.8424106+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

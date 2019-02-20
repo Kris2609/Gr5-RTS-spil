@@ -40,7 +40,7 @@ namespace ThreadMiner
             scrollVal = mouseState.ScrollWheelValue;
             ControlCamera(gameTime, gameWorld.cam);
 
-            Placeworker();
+            Placeworker(gameWorld.cam);
 
             oldScrollVal = scrollVal;
             oldMouseState = mouseState;
@@ -68,8 +68,8 @@ namespace ThreadMiner
         {
             if (mouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton != oldMouseState.LeftButton)
             {
-                Vector2 vec = (mousePos - GraphicInfo.HalfSize) * (1f / cam.Zoom) + cam.camPos;
-                Worker worker = new Worker(this, vec, 30, Worker.WorkerJob.Mine);
+                Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
+                Worker worker = new Worker(gameWorld, vec, 30, Worker.WorkerJob.Mine);
 
                 gameWorld.units.Add(worker);
             }

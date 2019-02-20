@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ThreadMiner
 {
-    abstract class Unit
+    public abstract class Unit
     {
         protected int health;
         protected string name;

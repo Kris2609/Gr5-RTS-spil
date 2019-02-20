@@ -13,8 +13,9 @@ namespace ThreadMiner
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        List<Unit> units;
-        List<Building> buildings;
+        public List<Unit> units;
+        public List<Building> buildings;
+
         public Camera cam;
         public InputManager inputManager;
 
@@ -50,10 +51,10 @@ namespace ThreadMiner
             Camera.HalfSizeY = graphics.PreferredBackBufferHeight / 2;
 
             buildings = new List<Building>();
+            buildings.Add(new TownHall(this, Vector2.Zero, "TownHall"));
             units = new List<Unit>();
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            buildings.Add(new TownHall(this, Vector2.Zero, "Townhall"));
             inputManager = new InputManager(this);
 
             // TODO: use this.Content to load your game content here

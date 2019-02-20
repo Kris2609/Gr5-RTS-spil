@@ -1,6 +1,1 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/GoldMine.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/GoldMine.xnb","TextureProcessor","Texture2DContent",7603,262229,0.2268706
-"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/House.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/House.xnb","TextureProcessor","Texture2DContent",32651,589909,0.0489726
-"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Smoke.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/spritesheet_Smoke.xnb","TextureProcessor","Texture2DContent",8620,409685,0.0459739
-"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Walk_Mine.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/spritesheet_Walk_Mine.xnb","TextureProcessor","Texture2DContent",30418,2359381,0.10194
-"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Townhall.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/Townhall.xnb","TextureProcessor","Texture2DContent",31628,1048661,0.0569752

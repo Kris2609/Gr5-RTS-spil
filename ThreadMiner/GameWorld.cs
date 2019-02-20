@@ -15,7 +15,8 @@ namespace ThreadMiner
 
         List<Unit> units;
         List<Building> buildings;
-        Camera cam;
+        public Camera cam;
+        public InputManager inputManager;
 
         public GameWorld()
         {
@@ -53,6 +54,7 @@ namespace ThreadMiner
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
             buildings.Add(new TownHall(this, Vector2.Zero, "Townhall"));
+            inputManager = new InputManager(this);
 
             // TODO: use this.Content to load your game content here
         }
@@ -84,6 +86,7 @@ namespace ThreadMiner
             {
                 unit.Update(gameTime);
             }
+            inputManager.HandleInput(gameTime);
 
             cam.CalcFullMatrix();
             base.Update(gameTime);

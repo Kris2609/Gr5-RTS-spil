@@ -65,6 +65,11 @@ namespace ThreadMiner
             return moveVec;
         }
 
+        public Rectangle DestinationRectangle
+        {
+            get => new Rectangle((int)pos.X, (int)pos.Y, 64, 64);
+        }
+
         public virtual void DrawAnimated(GameTime gameTime, SpriteBatch spriteBatch, int spriteSheetRow = 0)
         {
             int frameCount = spriteSheet.Width / 64;
@@ -74,7 +79,7 @@ namespace ThreadMiner
             //Rectangle temp = new Rectangle(0, 0, 64, 64);
             spriteBatch.Draw(
                     spriteSheet,                                    //texture
-                    new Rectangle((int)pos.X, (int)pos.Y, 64, 64),  //destinationRectangle (pos, size)
+                    DestinationRectangle,  //destinationRectangle (pos, size)
                     frameRect,                                      //sourceRectangle
                     Color.White,                                    //color
                     0f,                                             //rotation

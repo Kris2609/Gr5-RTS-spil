@@ -15,6 +15,7 @@ namespace ThreadMiner
 
         List<Unit> units;
         List<Building> buildings;
+        Camera cam;
 
         public GameWorld()
         {
@@ -43,6 +44,10 @@ namespace ThreadMiner
         /// </summary>
         protected override void LoadContent()
         {
+            cam = new Camera();
+            Camera.HalfSizeX = graphics.PreferredBackBufferWidth / 2;
+            Camera.HalfSizeY = graphics.PreferredBackBufferHeight / 2;
+
             buildings = new List<Building>();
             units = new List<Unit>();
 
@@ -80,6 +85,7 @@ namespace ThreadMiner
                 unit.Update(gameTime);
             }
 
+            cam.CalcFullMatrix();
             base.Update(gameTime);
         }
 
@@ -90,7 +96,7 @@ namespace ThreadMiner
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            spriteBatch.Begin();
+            spriteBatch.Begin(transformMatrix: cam.Transform, samplerState: SamplerState.PointClamp);
             foreach (Building building in buildings)
             {
                 building.Draw(gameTime, spriteBatch);

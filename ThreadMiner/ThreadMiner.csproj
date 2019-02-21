@@ -63,6 +63,7 @@
     <Compile Include="Units\Unit.cs" />
     <Compile Include="Units\Worker.cs" />
     <Compile Include="UserInterface\Button.cs" />
+    <Compile Include="UserInterface\Panel.cs" />
     <Compile Include="UserInterface\UIElement.cs" />
   </ItemGroup>
   <ItemGroup>

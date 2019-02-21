@@ -61,6 +61,7 @@ namespace ThreadMiner
             units = new List<Unit>();
             uiElements = new List<UIElement>();
             uiElements.Add(new Button(this, new Vector2(40, 40)));
+            uiElements.Add(new Panel(this, new Vector2(GraphicsDevice.Viewport.Bounds.Width - 100, GraphicsDevice.Viewport.Bounds.Height - 100), "House"));
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
             inputManager = new InputManager(this);

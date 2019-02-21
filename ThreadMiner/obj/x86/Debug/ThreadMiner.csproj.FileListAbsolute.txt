@@ -117,3 +117,7 @@ C:\Users\Kristoffer\source\repos\ThreadMiner\Github\Gr5 RTS spil\Gr5-RTS-spil\Gr
 C:\Users\Kristoffer\source\repos\ThreadMiner\Github\Gr5 RTS spil\Gr5-RTS-spil\Gr5-RTS-spil\ThreadMiner\obj\x86\Debug\ThreadMiner.csproj.CopyComplete
 C:\Users\Kristoffer\source\repos\ThreadMiner\Github\Gr5 RTS spil\Gr5-RTS-spil\Gr5-RTS-spil\ThreadMiner\obj\x86\Debug\ThreadMiner.exe
 C:\Users\Kristoffer\source\repos\ThreadMiner\Github\Gr5 RTS spil\Gr5-RTS-spil\Gr5-RTS-spil\ThreadMiner\obj\x86\Debug\ThreadMiner.pdb
+C:\Users\Dion\Documents\Dania Projekter\Technology - Threads\ThreadMiner\bin\Windows\x86\Debug\Content\Button_Open.xnb
+C:\Users\Dion\Documents\Dania Projekter\Technology - Threads\ThreadMiner\bin\Windows\x86\Debug\Content\Button_Pressed.xnb
+C:\Users\Dion\Documents\Dania Projekter\Technology - Threads\ThreadMiner\bin\Windows\x86\Debug\Content\Panel.xnb
+C:\Users\Dion\Documents\Dania Projekter\Technology - Threads\ThreadMiner\bin\Windows\x86\Debug\Content\Default.xnb

@@ -37,6 +37,13 @@
 /processorParam:TextureFormat=Color
 /build:Button_Pressed.png
 
+#begin Default.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Default.spritefont
+
 #begin House.png
 /importer:TextureImporter
 /processor:TextureProcessor

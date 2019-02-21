@@ -73,7 +73,7 @@ namespace ThreadMiner
 
             debugRectangle = new Texture2D(GraphicsDevice, 1, 1);
             debugRectangle.SetData(new[] {Color.White});
-
+            selectedUnits = new List<Unit>();
             // TODO: use this.Content to load your game content here
         }
 
@@ -139,10 +139,17 @@ namespace ThreadMiner
             {
                 spriteBatch.Draw(debugRectangle, inputManager.SelectionBox, new Color(0, 50, 10, 1));
             }
-            foreach (Unit unit in inputManager.SelectionDrag(cam))
+            if (selectedUnits != null && selectedUnits.Count>0)
             {
-                spriteBatch.Draw(debugRectangle, unit.WorldBounds, new Color(0,255,55,10));
+                foreach (Unit unit in selectedUnits)
+                {
+                    if (unit != null)
+                    {
+                        spriteBatch.Draw(debugRectangle, unit.WorldBounds, new Color(0, 255, 55, 10));
+                    }
+                }
             }
+            
 
             spriteBatch.End();
 

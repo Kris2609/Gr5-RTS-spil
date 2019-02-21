@@ -33,6 +33,7 @@ namespace ThreadMiner
         Vector2 startSelectionDrag;
         Vector2 currentSelectionDrag;
         Rectangle selectionBox;
+        float timeHeldButton;
 
         MouseState oldMouseState;
         
@@ -52,8 +53,8 @@ namespace ThreadMiner
             ControlCamera(gameTime, gameWorld.cam);
 
             Placeworker(gameWorld.cam);
-            StartSelectionDrag(gameWorld.cam);
-            SelectionDrag(gameWorld.cam);
+            StartSelectionDrag(gameWorld.cam, gameTime);
+            SelectionDrag(gameWorld.cam, gameTime);
 
             oldScrollVal = scrollVal;
             oldMouseState = mouseState;
@@ -76,8 +77,9 @@ namespace ThreadMiner
 
             cam.CalcFullMatrix();
         }
+        
 
-        void StartSelectionDrag(Camera cam)
+        void StartSelectionDrag(Camera cam, GameTime gameTime)
         {
             if (mouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton == oldMouseState.LeftButton && !selecting)
             {
@@ -86,11 +88,12 @@ namespace ThreadMiner
 
                 selecting = true;
                 startSelectionDrag = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
+
             }
         }
-        public List<Unit> SelectionDrag(Camera cam)
+        public List<Unit> SelectionDrag(Camera cam, GameTime gameTime)
         {
-            List<Unit> selectedUnits = new List<Unit>();
+                List<Unit> selectedUnits = new List<Unit>();
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
                 currentSelectionDrag = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
@@ -108,9 +111,22 @@ namespace ThreadMiner
                 }
                 gameWorld.selectedUnits = selectedUnits;
             }
+            else if(oldMouseState.LeftButton == ButtonState.Pressed)
+            {
+                currentSelectionDrag = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
+                selectionBox = new Rectangle(
+                    GameWorld.V2P(Vector2.Min(startSelectionDrag, currentSelectionDrag)),
+                    GameWorld.V2P(Vector2.Max(startSelectionDrag, currentSelectionDrag) - Vector2.Min(startSelectionDrag, currentSelectionDrag))
+                    );
+                selectedUnits.Add(gameWorld.units.Find(x => x.WorldBounds.Contains(selectionBox)));
+                if (selectedUnits.Count > 2)
+                {
+                    gameWorld.selectedUnits = selectedUnits;
+                }
+
+            }
             else
             {
-
                 startSelectionDrag = Vector2.Zero;
                 currentSelectionDrag = Vector2.Zero;
                 selecting = false;

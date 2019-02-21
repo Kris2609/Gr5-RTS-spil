@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/Default.spritefont</SourceFile>
-  <SourceTime>2019-02-21T14:06:56.5173849+01:00</SourceTime>
+  <SourceTime>2019-02-21T15:11:56.983631+01:00</SourceTime>
   <DestFile>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/bin/Windows/Content/Default.xnb</DestFile>
-  <DestTime>2019-02-21T14:12:53.215196+01:00</DestTime>
+  <DestTime>2019-02-21T15:13:39.481178+01:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

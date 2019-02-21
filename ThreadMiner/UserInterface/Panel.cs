@@ -12,6 +12,7 @@ namespace ThreadMiner
     {
         SpriteFont spriteFont;
         private string text;
+        float displayGold;
 
         public Panel(GameWorld currentGame, Vector2 pos, string text) : base(currentGame, pos)
         {
@@ -22,7 +23,7 @@ namespace ThreadMiner
 
         public override void Update(GameTime gameTime)
         {
-
+            displayGold = currentGame.townHall.CurrGold;
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -39,11 +40,11 @@ namespace ThreadMiner
                                                             //
             spriteBatch.DrawString(
                 spriteFont,
-                text,
+                text + displayGold.ToString("N0"),
                 new Vector2(DestinationRectangle.Center.X, DestinationRectangle.Y + 30),
                 Color.DarkKhaki,
                 0,
-                spriteFont.MeasureString(text) / 2,
+                spriteFont.MeasureString(text+ displayGold.ToString("N0")) / 2,
                 1,
                 SpriteEffects.None,
                 0.1f);

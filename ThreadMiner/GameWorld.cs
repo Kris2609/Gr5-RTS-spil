@@ -13,6 +13,9 @@ namespace ThreadMiner
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        float gold;
+        public TownHall townHall;
+
         public List<Unit> units;
         public List<UIElement> uiElements;
         public List<Building> buildings;
@@ -56,11 +59,13 @@ namespace ThreadMiner
             Camera.HalfSizeY = graphics.PreferredBackBufferHeight / 2;
 
             buildings = new List<Building>();
-            buildings.Add(new TownHall(this, Vector2.Zero, "TownHall"));
+            townHall = new TownHall(this, Vector2.Zero, "TownHall");
+            buildings.Add(townHall);
             buildings.Add(new Mine(this, new Vector2(0, 500), "Mine"));
             units = new List<Unit>();
             uiElements = new List<UIElement>();
             uiElements.Add(new Button(this, new Vector2(40, 40)));
+            uiElements.Add(new Panel(this, new Vector2(10, GraphicsDevice.Viewport.Bounds.Height - 100), "Gold: "));
             uiElements.Add(new Panel(this, new Vector2(GraphicsDevice.Viewport.Bounds.Width - 100, GraphicsDevice.Viewport.Bounds.Height - 100), "House"));
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -106,7 +111,6 @@ namespace ThreadMiner
             {
                 ui.Update(gameTime);
             }
-
             cam.CalcFullMatrix();
             base.Update(gameTime);
         }

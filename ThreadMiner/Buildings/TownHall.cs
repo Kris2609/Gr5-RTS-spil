@@ -7,9 +7,11 @@ using Microsoft.Xna.Framework;
 
 namespace ThreadMiner
 {
-    class TownHall : Building
+    public class TownHall : Building
     {
         float currGold;
+
+        public float CurrGold { get => currGold; set => currGold = value; }
 
         public TownHall(GameWorld currentGame, Vector2 pos, string spriteName) : base(500, 0, currentGame, pos, spriteName)
         {

@@ -13,7 +13,7 @@ namespace ThreadMiner
         private float gold;
         private float worktime;
         private static int workersInMine = 5;
-
+        static object thislock;
         public float GoldLeft { get => gold;}
 
         public Mine(GameWorld currentGame, Vector2 pos, string spriteName) : base(100, 100, currentGame, pos, spriteName)
@@ -37,7 +37,12 @@ namespace ThreadMiner
                
             while (workersInMine > 5)
             {
-                workersInMine++;
+                Monitor.Enter(thislock);
+                try
+                { workersInMine++; }
+                finally
+                { Monitor.Exit(thislock);}
+                
                 
             }
             

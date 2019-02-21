@@ -32,13 +32,14 @@ namespace ThreadMiner
             this.job = job;
             this.MinePerSec = 10;
             this.carryCap = 50;
-            spriteSheet = currentGame.Content.Load<Texture2D>("spritesheet_Warrior");
+            spriteSheet = currentGame.Content.Load<Texture2D>("spritesheet_Walk_Mine");
         }
         
         public override void DrawAnimated(GameTime gameTime, SpriteBatch spriteBatch, int spriteIndex)
         {
             base.DrawAnimated(gameTime, spriteBatch, (int)job);
         }
+
         public override void Update(GameTime gameTime)
         {
             if (currMine == null || currMine.GoldLeft >=0)

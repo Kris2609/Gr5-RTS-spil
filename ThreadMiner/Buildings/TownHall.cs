@@ -13,10 +13,18 @@ namespace ThreadMiner
 
         public TownHall(GameWorld currentGame, Vector2 pos, string spriteName) : base(500, 0, currentGame, pos, spriteName)
         {
+            
+        }
+
+        public float Health
+        {
+            get { return health; }
+            set { Health = value; }
         }
 
         public override void Update(GameTime gameTime)
         {
+            
         }
         public float DepositGold(float amount)
         {

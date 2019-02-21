@@ -10,8 +10,8 @@ namespace ThreadMiner
 {
     public abstract class Building
     {
-        private int health;
-        private int cost;
+        protected int health;
+        protected int cost;
         
         protected GameWorld currentGame;
         protected Vector2 pos;

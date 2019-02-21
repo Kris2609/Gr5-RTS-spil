@@ -11,7 +11,7 @@ namespace ThreadMiner
 {
     class Tower : Building
     {
-        protected int cost;//how much the tower cost to build
+        public static int cost = 90;//how much the tower cost to build
         protected int damage;//damage the tower does to the enemy
         protected float radius;//how big range the tower has
         
@@ -29,7 +29,7 @@ namespace ThreadMiner
         /// <param name="position"></param>
         /// <param name="bulletTexture"></param>
         
-        public Tower(GameWorld currentGame, Vector2 pos, string spriteName) : base(150, 90, currentGame, pos, spriteName)
+        public Tower(GameWorld currentGame, Vector2 pos, string spriteName) : base(150, currentGame, pos, spriteName)
         {
             this.radius = 200;
             this.damage = 5;

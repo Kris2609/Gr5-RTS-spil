@@ -129,7 +129,7 @@ namespace ThreadMiner
             foreach (Building building in buildings)
             {
                 building.Draw(gameTime, spriteBatch);
-                spriteBatch.Draw(debugRectangle, building.WorldBounds, new Color(255,0, 55, 10));
+                //spriteBatch.Draw(debugRectangle, building.WorldBounds, new Color(255,0, 55, 10));
             }
 
             foreach (Unit unit in units)

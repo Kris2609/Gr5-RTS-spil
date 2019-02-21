@@ -53,25 +53,20 @@ namespace ThreadMiner
                 {
                     if (canReach(currMine))
                     {
-                        if (t == null)
+                        if (t == null || !t.IsAlive)
                         {
-                            MineOnThread mine = new MineOnThread(Mine);
                             t = new Thread(delegate () { Mine(currMine); });
-                            t.Start();
-                            t.IsBackground = true;
-
-                            job = WorkerJob.Idle;
+                            if (t != null)
+                            {
+                                t.Start();
+                                t.IsBackground = true;
+                            }
+                            else
+                            {
+                                currMine = null;
+                            }
                             state = WorkerState.Idling;
                         }
-                        else
-                        {
-                            if (t.IsAlive)
-                            {
-                                state = WorkerState.Mining;
-                                //throw new Exception();
-                            }
-                        }
-                        
                     }
                     else
                     {
@@ -85,7 +80,13 @@ namespace ThreadMiner
                 {
                     if (canReach(currentGame.buildings[0]))
                     {
-                        Deposit((TownHall)currentGame.buildings[0]);
+                        if (t == null || !t.IsAlive)
+                        {
+                            t = new Thread(delegate () { Deposit(currentGame.townHall); });
+                            t.Start();
+                            t.IsBackground = true;
+                            state = WorkerState.Idling;
+                        }
                         state = WorkerState.Idling;
                         //throw new Exception();
                     }
@@ -154,7 +155,11 @@ namespace ThreadMiner
             float carryWeightLeft = (carryCap - currCarry);
             float tmp = MinePerSec * 0.005f;
             float mineAmount = carryWeightLeft < tmp ? carryWeightLeft : tmp;
-
+            if (!currMine.accessLimit.WaitOne(50))
+            {
+                currMine = null;
+                t.Abort();
+            }
             while (!(currCarry >= carryCap || mine.GoldLeft <= 0))
             {
                 lock (mine)
@@ -164,14 +169,16 @@ namespace ThreadMiner
                 }
                 Thread.Sleep(5);
             }
-            t = null;
+            mine.accessLimit.Release();
         }
 
-        public bool Deposit(TownHall hall)
+        public void Deposit(TownHall hall)
         {
             job = WorkerJob.Idle;
+            hall.accesLimiter.WaitOne();
             currCarry -= hall.DepositGold(currCarry);
-            return true;
+            Thread.Sleep(500);
+            hall.accesLimiter.ReleaseMutex();
         }
     }
 }

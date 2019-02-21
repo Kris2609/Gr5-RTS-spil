@@ -10,10 +10,10 @@ namespace ThreadMiner
     class Barrack : Building
     {
         private int health;
-        private int cost;
         private float trainingTime;
+        public static new int cost = 100;
 
-        public Barrack(GameWorld currentGame, Vector2 pos, string spriteName) : base(200, 100, currentGame, pos, spriteName)
+        public Barrack(GameWorld currentGame, Vector2 pos, string spriteName) : base(200, currentGame, pos, spriteName)
         {
             this.trainingTime = 10;
         }

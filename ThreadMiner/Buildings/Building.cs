@@ -11,7 +11,7 @@ namespace ThreadMiner
     public abstract class Building
     {
         protected int health;
-        protected int cost;
+        public static int cost;
         
         protected GameWorld currentGame;
         protected Vector2 pos;
@@ -24,10 +24,9 @@ namespace ThreadMiner
             return GameWorld.P2V(sprite.Bounds.Size);
         }
 
-        protected Building(int health, int cost, GameWorld currentGame, Vector2 pos, string spriteName)
+        protected Building(int health, GameWorld currentGame, Vector2 pos, string spriteName)
         {
             this.health = health;
-            this.cost = cost;
 
             this.currentGame = currentGame;
             this.pos = pos;

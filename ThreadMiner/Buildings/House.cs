@@ -9,7 +9,9 @@ namespace ThreadMiner
 {
     class House : Building
     {
-        public House(GameWorld currentGame, Vector2 pos, string spriteName) : base(120, 80, currentGame, pos, spriteName)
+        public static new int cost = 80;
+
+        public House(GameWorld currentGame, Vector2 pos, string spriteName) : base(120, currentGame, pos, spriteName)
         {
         }
 

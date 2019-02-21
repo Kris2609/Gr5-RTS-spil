@@ -13,14 +13,13 @@ namespace ThreadMiner
         protected int health;
         protected string name;
         protected int damage;
-        protected int cost;
+        public static readonly int cost = 90;
         
         protected Unit(string name, GameWorld currentGame, Vector2 pos, int animationFPS)
         {
             this.name = name;
             this.health = 20;
             this.damage = 2;
-            this.cost = 90;
 
             this.movementSpeed = 100;
             this.currentGame = currentGame;

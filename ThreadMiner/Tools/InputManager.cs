@@ -86,38 +86,52 @@ namespace ThreadMiner
 
         private void PlaceHouse(Camera cam)
         {
-            if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
+            if (gameWorld.townHall.CurrGold >= House.cost)
             {
-                Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
-                House house = new House(gameWorld, vec, "House");
-                gameWorld.buildings.Add(house);
+                if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
+                {
+                    Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
+                    House house = new House(gameWorld, vec, "House");
+                    gameWorld.buildings.Add(house);
 
-                currentRightUse = RightButtonUse.ControlUnits;
+                    currentRightUse = RightButtonUse.ControlUnits;
+                    gameWorld.townHall.CurrGold -= House.cost;
+                }
+
             }
         }
 
         private void PlaceMine(Camera cam)
         {
-            if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
+            if (gameWorld.townHall.CurrGold >= Mine.cost)
             {
-                Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
-                Mine mine = new Mine(gameWorld, vec, "Mine");
-                gameWorld.buildings.Add(mine);
+                if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
+                {
+                    Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
+                    Mine mine = new Mine(gameWorld, vec, "Mine");
+                    gameWorld.buildings.Add(mine);
 
-                currentRightUse = RightButtonUse.ControlUnits;
+                    currentRightUse = RightButtonUse.ControlUnits;
+                    gameWorld.townHall.CurrGold -= Mine.cost;
+                }
             }
         }
 
         void PlaceWorker(Camera cam)
         {
-            if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
+            if (gameWorld.townHall.CurrGold >= Unit.cost)
             {
-                Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
-                Worker worker = new Worker(gameWorld, vec, 30, Worker.WorkerJob.Mine);
+                if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
+                {
+                    Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
+                    Worker worker = new Worker(gameWorld, vec, 30, Worker.WorkerJob.Mine);
 
-                gameWorld.units.Add(worker);
-                currentRightUse = RightButtonUse.ControlUnits;
+                    gameWorld.units.Add(worker);
+                    currentRightUse = RightButtonUse.ControlUnits;
+                    gameWorld.townHall.CurrGold -= Unit.cost;
+                }
             }
+            
         }
 
         void ControlUnits(Camera cam)

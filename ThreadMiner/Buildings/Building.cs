@@ -34,9 +34,20 @@ namespace ThreadMiner
             this.sprite = currentGame.Content.Load<Texture2D>(spriteName);
         }
 
+        /// <summary>
+        /// Used for graphics alongside textures pivot point.
+        /// </summary>
         public Rectangle DestinationRectangle
         {
             get => new Rectangle((int)pos.X, (int)pos.Y, sprite.Bounds.Width, sprite.Bounds.Height);
+        }
+
+        /// <summary>
+        /// Gets the actual corner positions of the texture in the world.
+        /// </summary>
+        public Rectangle WorldBounds
+        {
+            get => new Rectangle((int)pos.X - sprite.Bounds.Width / 2, (int)pos.Y - sprite.Bounds.Height / 2, sprite.Bounds.Width, sprite.Bounds.Height);
         }
 
         public abstract void Update(GameTime gameTime);

@@ -14,6 +14,12 @@ namespace ThreadMiner
         protected Vector2 pos;
         protected Texture2D sprite;
 
+        protected UIElement(GameWorld currentGame, Vector2 pos)
+        {
+            this.currentGame = currentGame;
+            this.pos = pos;
+        }
+
         public Vector2 Pos { get => pos; }
 
         public Rectangle DestinationRectangle

@@ -23,6 +23,7 @@ namespace ThreadMiner
         public float MinePerSec;
         public float currCarry;
         public float carryCap;
+        public bool Selected = false;
 
         bool changedState;
 

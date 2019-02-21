@@ -26,16 +26,16 @@ namespace ThreadMiner
 
         public Rectangle SelectionBox
         {
-            get => new Rectangle(GameWorld.V2P(startSelectionDrag), GameWorld.V2P(currentSelectionDrag - startSelectionDrag));
+            get => selectionBox;
         }
+        public bool Selecting { get => selecting;}
 
         Vector2 startSelectionDrag;
         Vector2 currentSelectionDrag;
         Rectangle selectionBox;
 
         MouseState oldMouseState;
-
-        Texture2D workerOutline;
+        
         Vector2 mousePos;
 
         public InputManager(GameWorld gameWorld)
@@ -79,19 +79,25 @@ namespace ThreadMiner
 
         void StartSelectionDrag(Camera cam)
         {
-            if (mouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton == oldMouseState.LeftButton && ! selecting)
+            if (mouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton == oldMouseState.LeftButton && !selecting)
             {
+                startSelectionDrag = Vector2.Zero;
+                currentSelectionDrag = Vector2.Zero;
+
+                selecting = true;
                 startSelectionDrag = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
             }
         }
-        List<Unit> SelectionDrag(Camera cam)
+        public List<Unit> SelectionDrag(Camera cam)
         {
             List<Unit> selectedUnit = new List<Unit>();
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
-                selecting = true;
                 currentSelectionDrag = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
-                selectionBox = (new Rectangle(GameWorld.V2P(startSelectionDrag), GameWorld.V2P(currentSelectionDrag-startSelectionDrag)));
+                selectionBox = new Rectangle(
+                    GameWorld.V2P(Vector2.Min(startSelectionDrag, currentSelectionDrag)),
+                    GameWorld.V2P(Vector2.Max(startSelectionDrag, currentSelectionDrag) - Vector2.Min(startSelectionDrag, currentSelectionDrag))
+                    );
 
                 foreach (Unit unit in gameWorld.units)
                 {
@@ -103,6 +109,8 @@ namespace ThreadMiner
             }
             else
             {
+                startSelectionDrag = Vector2.Zero;
+                currentSelectionDrag = Vector2.Zero;
                 selecting = false;
             }
             return selectedUnit;

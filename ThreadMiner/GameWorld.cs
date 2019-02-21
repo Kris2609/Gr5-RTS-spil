@@ -14,6 +14,7 @@ namespace ThreadMiner
         SpriteBatch spriteBatch;
 
         public List<Unit> units;
+        public List<UIElement> uiElements;
         public List<Building> buildings;
 
         public Camera cam;
@@ -54,6 +55,7 @@ namespace ThreadMiner
             buildings.Add(new TownHall(this, Vector2.Zero, "TownHall"));
             buildings.Add(new Mine(this, new Vector2(0, 500), "Mine"));
             units = new List<Unit>();
+            uiElements = new List<UIElement>();
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
             inputManager = new InputManager(this);
@@ -80,15 +82,21 @@ namespace ThreadMiner
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            inputManager.HandleInput(gameTime);
+
             foreach (Building building in buildings)
             {
                 building.Update(gameTime);
             }
+
             foreach (Unit unit in units)
             {
                 unit.Update(gameTime);
             }
-            inputManager.HandleInput(gameTime);
+            foreach (UIElement ui in uiElements)
+            {
+                ui.Update(gameTime);
+            }
 
             cam.CalcFullMatrix();
             base.Update(gameTime);
@@ -112,6 +120,13 @@ namespace ThreadMiner
             foreach (Unit unit in units)
             {
                 unit.DrawAnimated(gameTime, spriteBatch);
+            }
+            spriteBatch.End();
+
+            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+            foreach (UIElement ui in uiElements)
+            {
+                ui.Draw(gameTime, spriteBatch);
             }
             spriteBatch.End();
 

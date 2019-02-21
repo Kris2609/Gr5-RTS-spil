@@ -63,7 +63,7 @@ namespace ThreadMiner
             inputManager = new InputManager(this);
 
             debugRectangle = new Texture2D(GraphicsDevice, 1, 1);
-            debugRectangle.SetData(new[] { Color.Red });
+            debugRectangle.SetData(new[] { new Color(255,255,255,10) });
 
             // TODO: use this.Content to load your game content here
         }
@@ -118,17 +118,16 @@ namespace ThreadMiner
             foreach (Building building in buildings)
             {
                 building.Draw(gameTime, spriteBatch);
+                spriteBatch.Draw(debugRectangle, building.WorldBounds, Color.Cyan);
             }
-            spriteBatch.End();
 
-            spriteBatch.Begin(transformMatrix: cam.Transform, samplerState: SamplerState.PointClamp);
             foreach (Unit unit in units)
             {
                 unit.DrawAnimated(gameTime, spriteBatch);
-                spriteBatch.Draw(debugRectangle,unit.DestinationRectangle ,Color.Chocolate);
+                spriteBatch.Draw(debugRectangle,unit.WorldBounds ,Color.Green);
             }
 
-
+            spriteBatch.Draw(debugRectangle, inputManager.SelectionBox, Color.Red);
 
             spriteBatch.End();
 
@@ -136,8 +135,6 @@ namespace ThreadMiner
             foreach (UIElement ui in uiElements)
             {
                 ui.Draw(gameTime, spriteBatch);
-=======
->>>>>>> Stashed changes
             }
 
 

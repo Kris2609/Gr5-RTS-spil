@@ -22,6 +22,17 @@ namespace ThreadMiner
 
         int camMoveSpeed = 500;
 
+        bool selecting = false;
+
+        public Rectangle SelectionBox
+        {
+            get => new Rectangle(GameWorld.V2P(startSelectionDrag), GameWorld.V2P(currentSelectionDrag - startSelectionDrag));
+        }
+
+        Vector2 startSelectionDrag;
+        Vector2 currentSelectionDrag;
+        Rectangle selectionBox;
+
         MouseState oldMouseState;
 
         Texture2D workerOutline;
@@ -41,6 +52,8 @@ namespace ThreadMiner
             ControlCamera(gameTime, gameWorld.cam);
 
             Placeworker(gameWorld.cam);
+            StartSelectionDrag(gameWorld.cam);
+            SelectionDrag(gameWorld.cam);
 
             oldScrollVal = scrollVal;
             oldMouseState = mouseState;
@@ -64,9 +77,40 @@ namespace ThreadMiner
             cam.CalcFullMatrix();
         }
 
+        void StartSelectionDrag(Camera cam)
+        {
+            if (mouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton == oldMouseState.LeftButton && ! selecting)
+            {
+                startSelectionDrag = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
+            }
+        }
+        List<Unit> SelectionDrag(Camera cam)
+        {
+            List<Unit> selectedUnit = new List<Unit>();
+            if (mouseState.LeftButton == ButtonState.Pressed)
+            {
+                selecting = true;
+                currentSelectionDrag = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
+                selectionBox = (new Rectangle(GameWorld.V2P(startSelectionDrag), GameWorld.V2P(currentSelectionDrag-startSelectionDrag)));
+
+                foreach (Unit unit in gameWorld.units)
+                {
+                    if (selectionBox.Contains(unit.WorldBounds))
+                    {
+                        selectedUnit.Add(unit);
+                    }
+                }
+            }
+            else
+            {
+                selecting = false;
+            }
+            return selectedUnit;
+        }
+
         void Placeworker(Camera cam)
         {
-            if (mouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton != oldMouseState.LeftButton)
+            if (mouseState.RightButton == ButtonState.Pressed && mouseState.RightButton != oldMouseState.RightButton)
             {
                 Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
                 Worker worker = new Worker(gameWorld, vec, 30, Worker.WorkerJob.Mine);

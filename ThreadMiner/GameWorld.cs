@@ -126,6 +126,7 @@ namespace ThreadMiner
             {
                 unit.DrawAnimated(gameTime, spriteBatch);
                 spriteBatch.Draw(debugRectangle,unit.DestinationRectangle ,Color.Chocolate);
+<<<<<<< Updated upstream
             }
 
 
@@ -136,7 +137,12 @@ namespace ThreadMiner
             foreach (UIElement ui in uiElements)
             {
                 ui.Draw(gameTime, spriteBatch);
+=======
+>>>>>>> Stashed changes
             }
+
+
+
             spriteBatch.End();
 
             base.Draw(gameTime);

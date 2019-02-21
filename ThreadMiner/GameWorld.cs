@@ -13,10 +13,8 @@ namespace ThreadMiner
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        Texture2D backgroundSprite;
-        Rectangle background;
+        public Background background;
 
-        float gold;
         public TownHall townHall;
 
         public List<Unit> units;
@@ -61,8 +59,7 @@ namespace ThreadMiner
             Camera.HalfSizeX = graphics.PreferredBackBufferWidth / 2;
             Camera.HalfSizeY = graphics.PreferredBackBufferHeight / 2;
 
-            backgroundSprite = Content.Load <Texture2D>("Background");
-            background = new Rectangle(-backgroundSprite.Width*5, -backgroundSprite.Width*5, backgroundSprite.Width, backgroundSprite.Height);
+            background = new Background(this);
 
             buildings = new List<Building>();
             townHall = new TownHall(this, Vector2.Zero, "TownHall");
@@ -133,17 +130,7 @@ namespace ThreadMiner
             GraphicsDevice.Clear(Color.ForestGreen);
 
             spriteBatch.Begin(transformMatrix: cam.Transform, samplerState: SamplerState.PointWrap);
-
-            spriteBatch.Draw(
-        backgroundSprite,                                 //texture
-        new Rectangle(background.Location, (background.Size.ToVector2() * 10).ToPoint()),                   //destinationRectangle (pos, size)
-        new Rectangle(background.Location, (background.Size.ToVector2() * 10).ToPoint()),     //sourceRectangle
-        Color.White,                            //color
-        0f,                                     //rotation
-        Vector2.Zero,    //pivot (half tex-size for middle pivot)
-        SpriteEffects.None,                     //effects
-        0);                                     //layerDepth
-
+            background.Draw(spriteBatch);
             spriteBatch.End();
 
 

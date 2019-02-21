@@ -49,7 +49,6 @@ namespace ThreadMiner
         {
             if (currMine == null || currMine.GoldLeft >=0)
             {
-                currMine = (Mine)currentGame.buildings.Find(x => x.GetType() == typeof(Mine) && ((Mine)x).GoldLeft > 0);
                 if (currCarry < carryCap&& currMine != null)
                 {
                     if (canReach(currMine))

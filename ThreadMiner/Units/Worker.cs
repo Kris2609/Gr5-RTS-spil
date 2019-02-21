@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -27,6 +28,7 @@ namespace ThreadMiner
 
         bool changedState;
 
+        Thread t;
 
         public Worker(GameWorld currentGame, Vector2 pos, int animationFPS, WorkerJob job) : base("Worker", currentGame, pos, animationFPS)
         {
@@ -41,6 +43,8 @@ namespace ThreadMiner
             base.DrawAnimated(gameTime, spriteBatch, (int)job);
         }
 
+        public delegate void MineOnThread(Mine m);
+
         public override void Update(GameTime gameTime)
         {
             if (currMine == null || currMine.GoldLeft >=0)
@@ -50,17 +54,25 @@ namespace ThreadMiner
                 {
                     if (canReach(currMine))
                     {
-                        if (!Mine(currMine, gameTime))
+                        if (t == null)
                         {
-                            state = WorkerState.Mining;
-                            //throw new Exception();
+                            MineOnThread mine = new MineOnThread(Mine);
+                            t = new Thread(delegate () { Mine(currMine); });
+                            t.Start();
+                            t.IsBackground = true;
+
+                            job = WorkerJob.Idle;
+                            state = WorkerState.Idling;
                         }
                         else
                         {
-                            job = WorkerJob.Idle;
-                            state = WorkerState.Idling;
-                            //throw new Exception();
+                            if (t.IsAlive)
+                            {
+                                state = WorkerState.Mining;
+                                //throw new Exception();
+                            }
                         }
+                        
                     }
                     else
                     {
@@ -137,21 +149,23 @@ namespace ThreadMiner
             }
         }
 
-        public bool Mine(Mine mine, GameTime gameTime)
+        public void Mine(Mine mine)
         {
             job = WorkerJob.Mine;
             float carryWeightLeft = (carryCap - currCarry);
-            float tmp = MinePerSec * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            float tmp = MinePerSec * 0.005f;
             float mineAmount = carryWeightLeft < tmp ? carryWeightLeft : tmp;
-            currCarry += mine.MineGold(mineAmount);
-            if (currCarry >= carryCap || mine.GoldLeft <= 0)
+
+            while (!(currCarry >= carryCap || mine.GoldLeft <= 0))
             {
-                return true;
+                lock (mine)
+                {
+                    //throw new Exception();
+                    currCarry += mine.MineGold(mineAmount);
+                }
+                Thread.Sleep(5);
             }
-            else
-            {
-                return false;
-            }
+            t = null;
         }
 
         public bool Deposit(TownHall hall)

@@ -90,7 +90,7 @@ namespace ThreadMiner
         }
         public List<Unit> SelectionDrag(Camera cam)
         {
-            List<Unit> selectedUnit = new List<Unit>();
+            List<Unit> selectedUnits = new List<Unit>();
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
                 currentSelectionDrag = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
@@ -103,17 +103,19 @@ namespace ThreadMiner
                 {
                     if (selectionBox.Contains(unit.WorldBounds))
                     {
-                        selectedUnit.Add(unit);
+                        selectedUnits.Add(unit);
                     }
                 }
+                gameWorld.selectedUnits = selectedUnits;
             }
             else
             {
+
                 startSelectionDrag = Vector2.Zero;
                 currentSelectionDrag = Vector2.Zero;
                 selecting = false;
             }
-            return selectedUnit;
+            return selectedUnits;
         }
 
         void Placeworker(Camera cam)

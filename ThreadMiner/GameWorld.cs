@@ -17,6 +17,8 @@ namespace ThreadMiner
         public List<UIElement> uiElements;
         public List<Building> buildings;
 
+        public List<Unit> selectedUnits;
+
         public Camera cam;
         public InputManager inputManager;
 

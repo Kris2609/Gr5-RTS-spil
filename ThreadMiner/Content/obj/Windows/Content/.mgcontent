@@ -4,12 +4,12 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/House.png</File>
-    <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Mine.png</File>
-    <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Smoke.png</File>
-    <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Walk_Mine.png</File>
-    <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Warrior.png</File>
-    <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/TownHall.png</File>
+    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/House.png</File>
+    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/Mine.png</File>
+    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/spritesheet_Smoke.png</File>
+    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/spritesheet_Walk_Mine.png</File>
+    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/spritesheet_Warrior.png</File>
+    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/TownHall.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

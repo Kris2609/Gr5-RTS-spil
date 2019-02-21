@@ -20,6 +20,8 @@ namespace ThreadMiner
         public Camera cam;
         public InputManager inputManager;
 
+        Texture2D debugRectangle;
+
         public GameWorld()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -59,6 +61,9 @@ namespace ThreadMiner
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
             inputManager = new InputManager(this);
+
+            debugRectangle = new Texture2D(GraphicsDevice, 1, 1);
+            debugRectangle.SetData(new[] { Color.Red });
 
             // TODO: use this.Content to load your game content here
         }
@@ -120,7 +125,11 @@ namespace ThreadMiner
             foreach (Unit unit in units)
             {
                 unit.DrawAnimated(gameTime, spriteBatch);
+                spriteBatch.Draw(debugRectangle,unit.DestinationRectangle ,Color.Chocolate);
             }
+
+
+
             spriteBatch.End();
 
             spriteBatch.Begin(samplerState: SamplerState.PointClamp);

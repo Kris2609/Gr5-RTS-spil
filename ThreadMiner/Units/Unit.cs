@@ -83,7 +83,7 @@ namespace ThreadMiner
                     frameRect,                                      //sourceRectangle
                     Color.White,                                    //color
                     0f,                                             //rotation
-                    Vector2.One * 32,                                 //pivot (half tex-size for middle pivot)
+                    Vector2.Zero,                                 //pivot (half tex-size for middle pivot)
                     SpriteEffects.None,                             //effects
                     0.1f);                                          //layerDepth
         }

@@ -4,15 +4,15 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Button_Open.png</File>
-    <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Button_Pressed.png</File>
-    <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/House.png</File>
-    <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Mine.png</File>
-    <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Panel.png</File>
-    <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Smoke.png</File>
-    <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Walk_Mine.png</File>
-    <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Warrior.png</File>
-    <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/TownHall.png</File>
+    <File>C:/Users/Kristoffer/source/repos/ThreadMiner/Github/Gr5 RTS spil/Gr5-RTS-spil/Gr5-RTS-spil/ThreadMiner/Content/Button_Open.png</File>
+    <File>C:/Users/Kristoffer/source/repos/ThreadMiner/Github/Gr5 RTS spil/Gr5-RTS-spil/Gr5-RTS-spil/ThreadMiner/Content/Button_Pressed.png</File>
+    <File>C:/Users/Kristoffer/source/repos/ThreadMiner/Github/Gr5 RTS spil/Gr5-RTS-spil/Gr5-RTS-spil/ThreadMiner/Content/House.png</File>
+    <File>C:/Users/Kristoffer/source/repos/ThreadMiner/Github/Gr5 RTS spil/Gr5-RTS-spil/Gr5-RTS-spil/ThreadMiner/Content/Mine.png</File>
+    <File>C:/Users/Kristoffer/source/repos/ThreadMiner/Github/Gr5 RTS spil/Gr5-RTS-spil/Gr5-RTS-spil/ThreadMiner/Content/Panel.png</File>
+    <File>C:/Users/Kristoffer/source/repos/ThreadMiner/Github/Gr5 RTS spil/Gr5-RTS-spil/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Smoke.png</File>
+    <File>C:/Users/Kristoffer/source/repos/ThreadMiner/Github/Gr5 RTS spil/Gr5-RTS-spil/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Walk_Mine.png</File>
+    <File>C:/Users/Kristoffer/source/repos/ThreadMiner/Github/Gr5 RTS spil/Gr5-RTS-spil/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Warrior.png</File>
+    <File>C:/Users/Kristoffer/source/repos/ThreadMiner/Github/Gr5 RTS spil/Gr5-RTS-spil/Gr5-RTS-spil/ThreadMiner/Content/TownHall.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

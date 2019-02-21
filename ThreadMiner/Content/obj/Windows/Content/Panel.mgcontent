@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Panel.png</SourceFile>
-  <SourceTime>2019-02-21T11:25:42.5641027+01:00</SourceTime>
-  <DestFile>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/Panel.xnb</DestFile>
-  <DestTime>2019-02-21T11:35:14.8512405+01:00</DestTime>
+  <SourceFile>C:/Users/Kristoffer/source/repos/ThreadMiner/Github/Gr5 RTS spil/Gr5-RTS-spil/Gr5-RTS-spil/ThreadMiner/Content/Panel.png</SourceFile>
+  <SourceTime>2019-02-21T13:34:02.9470972+01:00</SourceTime>
+  <DestFile>C:/Users/Kristoffer/source/repos/ThreadMiner/Github/Gr5 RTS spil/Gr5-RTS-spil/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/Panel.xnb</DestFile>
+  <DestTime>2019-02-21T13:35:34.2860075+01:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
+  <ImporterTime>2018-09-23T23:55:52+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2018-12-08T17:35:54+01:00</ProcessorTime>
+  <ProcessorTime>2018-09-23T23:55:52+02:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>

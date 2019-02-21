@@ -34,12 +34,12 @@ namespace ThreadMiner
         Vector2 currentSelectionDrag;
         Rectangle selectionBox;
 
-        MouseState oldMouseState;
+        public MouseState oldMouseState;
         
         Vector2 mousePos;
 
-        public enum RightButtonUse { PlaceWorker, ControlUnits, PlaceBuilding};
-        public RightButtonUse currentRightUse= RightButtonUse.PlaceWorker;
+        public enum RightButtonUse { PlaceWorker, ControlUnits, PlaceHouse, PlaceMine};
+        public RightButtonUse currentRightUse= RightButtonUse.ControlUnits;
 
 
         public InputManager(GameWorld gameWorld)
@@ -60,21 +60,64 @@ namespace ThreadMiner
             //Placeworker(gameWorld.cam);
             switch (currentRightUse)
             {
-                case RightButtonUse.PlaceWorker:
-                    Placeworker(gameWorld.cam);
-                    break;
                 case RightButtonUse.ControlUnits:
                     ControlUnits(gameWorld.cam);
                     break;
-                case RightButtonUse.PlaceBuilding:
+                case RightButtonUse.PlaceWorker:
+                    PlaceWorker(gameWorld.cam);
+                    break;
+                case RightButtonUse.PlaceHouse:
+                    PlaceHouse(gameWorld.cam);
+                    break;
+                case RightButtonUse.PlaceMine:
+                    PlaceMine(gameWorld.cam);
                     break;
             }
             StartSelectionDrag(gameWorld.cam);
             SelectionDrag(gameWorld.cam);
             EndSelectionDrag(gameWorld.cam);
 
+        }
+        public void ResetValues()
+        {
             oldScrollVal = scrollVal;
             oldMouseState = mouseState;
+        }
+
+        private void PlaceHouse(Camera cam)
+        {
+            if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
+            {
+                Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
+                House house = new House(gameWorld, vec, "House");
+                gameWorld.buildings.Add(house);
+
+                currentRightUse = RightButtonUse.ControlUnits;
+            }
+        }
+
+        private void PlaceMine(Camera cam)
+        {
+            if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
+            {
+                Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
+                Mine mine = new Mine(gameWorld, vec, "Mine");
+                gameWorld.buildings.Add(mine);
+
+                currentRightUse = RightButtonUse.ControlUnits;
+            }
+        }
+
+        void PlaceWorker(Camera cam)
+        {
+            if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
+            {
+                Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
+                Worker worker = new Worker(gameWorld, vec, 30, Worker.WorkerJob.Mine);
+
+                gameWorld.units.Add(worker);
+                currentRightUse = RightButtonUse.ControlUnits;
+            }
         }
 
         void ControlUnits(Camera cam)
@@ -83,22 +126,22 @@ namespace ThreadMiner
             {
                 Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
                 Building building = gameWorld.buildings.Find(x => x.WorldBounds.Contains(vec));
-                if (building != null && building.GetType() == typeof(Mine))
+                if (building != null )
                 {
-                    foreach (Unit unit in gameWorld.selectedUnits)
+                    if (building.GetType() == typeof(Mine))
                     {
-                        if (unit.GetType() == typeof(Worker))
+                        foreach (Unit unit in gameWorld.selectedUnits)
                         {
-                            ((Worker)unit).CurrMine = (Mine)building;
+                            if (unit.GetType() == typeof(Worker))
+                            {
+                                ((Worker)unit).CurrMine = (Mine)building;
+                            }
                         }
                     }
                 }
-                currentRightUse = RightButtonUse.PlaceWorker;
             }
         }
-
-        
-        
+                
         public void SelectSingle(Camera cam)
         {
             List<Unit> selectedUnits = new List<Unit>();
@@ -172,7 +215,6 @@ namespace ThreadMiner
                     }
                 }
                 gameWorld.selectedUnits = selectedUnits;
-                currentRightUse = RightButtonUse.ControlUnits;
                 startSelectionDrag = Vector2.Zero;
                 currentSelectionDrag = Vector2.Zero;
                 selecting = false;
@@ -180,17 +222,6 @@ namespace ThreadMiner
             return selectedUnits;
         }
 
-        void Placeworker(Camera cam)
-        {
-
-            if (mouseState.RightButton == ButtonState.Pressed && mouseState.RightButton != oldMouseState.RightButton)
-            {
-                Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
-                Worker worker = new Worker(gameWorld, vec, 30, Worker.WorkerJob.Mine);
-
-                gameWorld.units.Add(worker);
-            }
-        }
         void ControlCamera(GameTime gameTime, Camera cam)
         {
             cam.Zoom += 0.001f * (scrollVal - oldScrollVal);

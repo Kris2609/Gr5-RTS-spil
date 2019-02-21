@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace ThreadMiner
 {
@@ -28,9 +29,10 @@ namespace ThreadMiner
             if (ScreenBounds.Contains(currentGame.inputManager.mouseState.Position))
             {
                 col = Color.White;
-                if (currentGame.inputManager.mouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed)
+                if (currentGame.inputManager.mouseState.LeftButton == ButtonState.Pressed && currentGame.inputManager.oldMouseState.LeftButton == ButtonState.Released)
                 {
                     col = Color.Gray;
+                    currentGame.inputManager.currentRightUse = InputManager.RightButtonUse.PlaceHouse;
                 }
             }
             else

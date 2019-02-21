@@ -113,6 +113,8 @@ namespace ThreadMiner
                 ui.Update(gameTime);
             }
             cam.CalcFullMatrix();
+            inputManager.ResetValues();
+
             base.Update(gameTime);
         }
 

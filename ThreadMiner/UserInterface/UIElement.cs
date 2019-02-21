@@ -13,10 +13,28 @@ namespace ThreadMiner
         protected GameWorld currentGame;
         protected Vector2 pos;
         protected Texture2D sprite;
+        protected Color col = Color.White;
+
+        protected UIElement(GameWorld currentGame, Vector2 pos)
+        {
+            this.currentGame = currentGame;
+            this.pos = pos;
+        }
 
         public Vector2 Pos { get => pos; }
 
+        /// <summary>
+        /// Used for graphics alongside textures pivot point.
+        /// </summary>
         public Rectangle DestinationRectangle
+        {
+            get => new Rectangle((int)pos.X, (int)pos.Y, sprite.Bounds.Width, sprite.Bounds.Height);
+        }
+
+        /// <summary>
+        /// Gets the actual corner positions of the texture on the screen.
+        /// </summary>
+        public Rectangle ScreenBounds
         {
             get => new Rectangle((int)pos.X, (int)pos.Y, sprite.Bounds.Width, sprite.Bounds.Height);
         }
@@ -29,9 +47,9 @@ namespace ThreadMiner
                     sprite,                                 //texture
                     DestinationRectangle,                   //destinationRectangle (pos, size)
                     null,                                   //sourceRectangle
-                    Color.White,                            //color
+                    col,                                    //color
                     0f,                                     //rotation
-                    Vector2.One * sprite.Bounds.Width / 2,  //pivot (half tex-size for middle pivot)
+                    Vector2.Zero,                           //pivot (half tex-size for middle pivot)
                     SpriteEffects.None,                     //effects
                     0);                                     //layerDepth
         }

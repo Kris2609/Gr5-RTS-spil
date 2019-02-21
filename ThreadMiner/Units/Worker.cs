@@ -45,7 +45,46 @@ namespace ThreadMiner
             if (currMine == null || currMine.GoldLeft >=0)
             {
                 currMine = (Mine)currentGame.buildings.Find(x => x.GetType() == typeof(Mine) && ((Mine)x).GoldLeft > 0);
-                
+                if (currCarry < carryCap&& currMine != null)
+                {
+                    if (canReach(currMine))
+                    {
+                        if (!Mine(currMine, gameTime))
+                        {
+                            state = WorkerState.Mining;
+                            //throw new Exception();
+                        }
+                        else
+                        {
+                            job = WorkerJob.Idle;
+                            state = WorkerState.Idling;
+                            //throw new Exception();
+                        }
+                    }
+                    else
+                    {
+
+                        Move(currMine.Pos, gameTime);
+                        state = WorkerState.Walking;
+                        //throw new Exception();
+                    }
+                }
+                else
+                {
+                    if (canReach(currentGame.buildings[0]))
+                    {
+                        Deposit((TownHall)currentGame.buildings[0]);
+                        state = WorkerState.Idling;
+                        //throw new Exception();
+                    }
+                    else
+                    {
+
+                        Move(currentGame.buildings[0].Pos, gameTime);
+                        state = WorkerState.Idling;
+                        //throw new Exception();
+                    }
+                }
             }
             else
             {
@@ -53,46 +92,7 @@ namespace ThreadMiner
             }
             changedState = (oldState == state);
 
-            if (currCarry < carryCap)
-            {
-                if (canReach(currMine))
-                {
-                    if (!Mine(currMine, gameTime))
-                    {
-                        state = WorkerState.Mining;
-                        //throw new Exception();
-                    }
-                    else
-                    {
-                        job = WorkerJob.Idle;
-                        state = WorkerState.Idling;
-                        //throw new Exception();
-                    }
-                }
-                else
-                {
 
-                    Move(currMine.Pos, gameTime);
-                    state = WorkerState.Walking;
-                    //throw new Exception();
-                }
-            }
-            else
-            {
-                if (canReach(currentGame.buildings[0]))
-                {
-                    Deposit((TownHall)currentGame.buildings[0]);
-                    state = WorkerState.Idling;
-                    //throw new Exception();
-                }
-                else
-                {
-
-                    Move(currentGame.buildings[0].Pos, gameTime);
-                    state = WorkerState.Idling;
-                    //throw new Exception();
-                }
-            }
             oldState = state;
         }
         

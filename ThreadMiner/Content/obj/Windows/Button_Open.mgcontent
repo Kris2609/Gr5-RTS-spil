@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Smoke.png</SourceFile>
-  <SourceTime>2019-02-19T17:11:18.9588208+01:00</SourceTime>
-  <DestFile>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/spritesheet_Smoke.xnb</DestFile>
-  <DestTime>2019-02-21T11:10:57.1191676+01:00</DestTime>
+  <SourceFile>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Button_Open.png</SourceFile>
+  <SourceTime>2019-02-21T11:26:14.87475+01:00</SourceTime>
+  <DestFile>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Button_Open.xnb</DestFile>
+  <DestTime>2019-02-21T11:31:33.7636772+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

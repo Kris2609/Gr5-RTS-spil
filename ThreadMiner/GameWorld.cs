@@ -58,6 +58,7 @@ namespace ThreadMiner
             buildings.Add(new Mine(this, new Vector2(0, 500), "Mine"));
             units = new List<Unit>();
             uiElements = new List<UIElement>();
+            uiElements.Add(new Button(this, new Vector2(40, 40)));
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
             inputManager = new InputManager(this);

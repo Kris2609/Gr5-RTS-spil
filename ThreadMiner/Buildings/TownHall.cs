@@ -11,6 +11,8 @@ namespace ThreadMiner
     public class TownHall : Building
     {
         float currGold;
+        int unitCap = 10;
+        public int UnitCap { get => unitCap; set => unitCap = value; }
 
         public Mutex accesLimiter;
 
@@ -18,7 +20,7 @@ namespace ThreadMiner
 
         public TownHall(GameWorld currentGame, Vector2 pos, string spriteName) : base(500, currentGame, pos, spriteName)
         {
-            this.currGold = 450;
+            this.currGold = 4500;
             accesLimiter = new Mutex();
         }
 
@@ -27,6 +29,7 @@ namespace ThreadMiner
             get { return health; }
             set { Health = value; }
         }
+
 
         public override void Update(GameTime gameTime)
         {

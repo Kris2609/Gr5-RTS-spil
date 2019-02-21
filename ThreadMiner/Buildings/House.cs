@@ -13,6 +13,7 @@ namespace ThreadMiner
 
         public House(GameWorld currentGame, Vector2 pos, string spriteName) : base(120, currentGame, pos, spriteName)
         {
+            currentGame.townHall.UnitCap += 6;
         }
 
         public override void Update(GameTime gameTime)

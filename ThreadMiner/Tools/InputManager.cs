@@ -121,17 +121,14 @@ namespace ThreadMiner
         {
             if (gameWorld.townHall.CurrGold >= Unit.cost)
             {
-                if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
-                {
-                    Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
-                    Worker worker = new Worker(gameWorld, vec, 30, Worker.WorkerJob.Mine);
+                Vector2 vec = gameWorld.townHall.Pos + 150 * new Vector2((float)Math.Sin((new Random()).Next()), (float)Math.Cos((new Random()).Next()));
+                Worker worker = new Worker(gameWorld, vec, 30, Worker.WorkerJob.Mine);
 
-                    gameWorld.units.Add(worker);
-                    currentRightUse = RightButtonUse.ControlUnits;
-                    gameWorld.townHall.CurrGold -= Unit.cost;
-                }
+                gameWorld.units.Add(worker);
+                gameWorld.townHall.CurrGold -= Unit.cost;
             }
-            
+            currentRightUse = RightButtonUse.ControlUnits;
+
         }
 
         void ControlUnits(Camera cam)
@@ -182,7 +179,7 @@ namespace ThreadMiner
             {
                 startSelectionDrag = Vector2.Zero;
                 currentSelectionDrag = Vector2.Zero;
-
+                
                 selecting = true;
                 startSelectionDrag = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
 
@@ -227,6 +224,13 @@ namespace ThreadMiner
                     {
                         selectedUnits.Add(unit);
                     }
+                }
+
+                if (selectedUnits.Count < 1)
+                {
+                    Unit unit = gameWorld.units.Find(x => x.WorldBounds.Contains(currentSelectionDrag));
+
+                    selectedUnits.Add(unit);
                 }
                 gameWorld.selectedUnits = selectedUnits;
                 startSelectionDrag = Vector2.Zero;

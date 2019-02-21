@@ -95,7 +95,7 @@ namespace ThreadMiner
                     0f,                                             //rotation
                     Vector2.One * 32,                               //pivot (half tex-size for middle pivot)
                     SpriteEffects.None,                             //effects
-                    0.1f);                                          //layerDepth
+                    pos.Y/5000f);                                          //layerDepth
         }
     }
 }

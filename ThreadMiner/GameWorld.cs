@@ -126,7 +126,6 @@ namespace ThreadMiner
             {
                 unit.DrawAnimated(gameTime, spriteBatch);
                 spriteBatch.Draw(debugRectangle,unit.DestinationRectangle ,Color.Chocolate);
-<<<<<<< Updated upstream
             }
 
 

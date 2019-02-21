@@ -10,6 +10,7 @@ namespace ThreadMiner
 {
     class ResourcePanel : UIElement
     {
+        Texture2D goldIconSprite;
         SpriteFont spriteFont;
         private string text;
         float displayGold;
@@ -22,6 +23,7 @@ namespace ThreadMiner
             this.text = text;
             base.sprite = currentGame.Content.Load<Texture2D>("Panel");
             spriteFont = currentGame.Content.Load<SpriteFont>("Default");
+            goldIconSprite = currentGame.Content.Load<Texture2D>("GoldIcon");
         }
 
         public override void Update(GameTime gameTime)
@@ -46,16 +48,29 @@ namespace ThreadMiner
                     SpriteEffects.None,                     //effects
                     0);                                     //layerDepth
                                                             //
+
+            spriteBatch.Draw(
+                    goldIconSprite,                                 //texture
+                    new Rectangle(DestinationRectangle.X + 50, DestinationRectangle.Center.Y, (int)(goldIconSprite.Width / 1.2f), (int)(goldIconSprite.Height / 1.2f)),                  //destinationRectangle (pos, size)
+                    null,                                   //sourceRectangle
+                    col,                                    //color
+                    0f,                                     //rotation
+                    new Vector2(goldIconSprite.Width/2, goldIconSprite.Height/2),                           //pivot (half tex-size for middle pivot)
+                    SpriteEffects.None,                     //effects
+                    0);                                     //layerDepth
+                                                            //
             spriteBatch.DrawString(
                 spriteFont,
                 text + displayGold.ToString("N0"),
-                new Vector2(DestinationRectangle.Center.X, DestinationRectangle.Y + 30),
+                new Vector2(DestinationRectangle.X + DestinationRectangle.Width - 30, DestinationRectangle.Y + 30),
                 Color.DarkKhaki,
                 0,
-                spriteFont.MeasureString(text + displayGold.ToString("N0")) / 2,
+                spriteFont.MeasureString(text + displayGold.ToString("N0")) * new Vector2(1,0.5f),
                 1,
                 SpriteEffects.None,
                 0.1f);
+
+
         }
     }
 }

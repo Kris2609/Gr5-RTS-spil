@@ -58,6 +58,7 @@
     <Compile Include="Tools\Camera.cs" />
     <Compile Include="Tools\GraphicInfo.cs" />
     <Compile Include="Tools\InputManager.cs" />
+    <Compile Include="Tools\Background.cs" />
     <Compile Include="Units\Mage.cs" />
     <Compile Include="Units\Swordsman.cs" />
     <Compile Include="Units\Unit.cs" />

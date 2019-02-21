@@ -1,11 +1,1 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-<<<<<<< Updated upstream
-"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Default.spritefont","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/Default.xnb","FontDescriptionProcessor","SpriteFontContent",2022,37905,0.3511843
-"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/MineIcon.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/MineIcon.xnb","TextureProcessor","Texture2DContent",1204,16469,0.1629237
-"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Walk_Mine.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/spritesheet_Walk_Mine.xnb","TextureProcessor","Texture2DContent",30418,2359381,0.0983986
-"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Warrior.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/spritesheet_Warrior.xnb","TextureProcessor","Texture2DContent",72907,2359381,0.0913171
-"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/TownHall.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/TownHall.xnb","TextureProcessor","Texture2DContent",31628,1048661,0.0529706
-"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/UnitIcon.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/UnitIcon.xnb","TextureProcessor","Texture2DContent",953,16469,0.0129934
-"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/WorkerIcon.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/WorkerIcon.xnb","TextureProcessor","Texture2DContent",898,16469,0.01499
-=======
->>>>>>> Stashed changes

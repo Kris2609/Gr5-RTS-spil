@@ -1,43 +1,4 @@
-<<<<<<< Updated upstream
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\Content\Button_Open.xnb
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\Content\Button_Pressed.xnb
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\Content\Default.xnb
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\Content\GoldIcon.xnb
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\Content\GoldMine.xnb
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\Content\House.xnb
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\Content\Mine.xnb
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\Content\MineIcon.xnb
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\Content\Panel.xnb
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\Content\spritesheet_Smoke.xnb
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\Content\spritesheet_Walk_Mine.xnb
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\Content\spritesheet_Warrior.xnb
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\Content\Townhall.xnb
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\Content\UnitIcon.xnb
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\Content\WorkerIcon.xnb
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\ThreadMiner.exe
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\ThreadMiner.pdb
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\MonoGame.Framework.dll
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\SharpDX.dll
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\SharpDX.DXGI.dll
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\SharpDX.XInput.dll
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\MonoGame.Framework.xml
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\SharpDX.xml
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\SharpDX.DXGI.xml
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\SharpDX.XInput.xml
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\obj\x86\Debug\ThreadMiner.csproj.CoreCompileInputs.cache
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\obj\x86\Debug\ThreadMiner.csproj.CopyComplete
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\obj\x86\Debug\ThreadMiner.exe
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\obj\x86\Debug\ThreadMiner.pdb
-C:\Github Projects\Gr5-RTS-spil\ThreadMiner\obj\x86\Debug\ThreadMiner.csprojAssemblyReference.cache
-=======
+C:\Users\Dion\Documents\Dania Projekter\Technology - Threads\ThreadMiner\bin\Windows\x86\Debug\Content\Background.xnb
 C:\Users\Dion\Documents\Dania Projekter\Technology - Threads\ThreadMiner\bin\Windows\x86\Debug\Content\Button_Open.xnb
 C:\Users\Dion\Documents\Dania Projekter\Technology - Threads\ThreadMiner\bin\Windows\x86\Debug\Content\Button_Pressed.xnb
 C:\Users\Dion\Documents\Dania Projekter\Technology - Threads\ThreadMiner\bin\Windows\x86\Debug\Content\Default.xnb
@@ -76,5 +37,3 @@ C:\Users\Dion\Documents\Dania Projekter\Technology - Threads\ThreadMiner\obj\x86
 C:\Users\Dion\Documents\Dania Projekter\Technology - Threads\ThreadMiner\obj\x86\Debug\ThreadMiner.exe
 C:\Users\Dion\Documents\Dania Projekter\Technology - Threads\ThreadMiner\obj\x86\Debug\ThreadMiner.pdb
 C:\Users\Dion\Documents\Dania Projekter\Technology - Threads\ThreadMiner\obj\x86\Debug\ThreadMiner.csprojAssemblyReference.cache
-C:\Users\Dion\Documents\Dania Projekter\Technology - Threads\ThreadMiner\bin\Windows\x86\Debug\Content\Background.xnb
->>>>>>> Stashed changes

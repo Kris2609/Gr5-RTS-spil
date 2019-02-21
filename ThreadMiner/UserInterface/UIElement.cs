@@ -26,7 +26,7 @@ namespace ThreadMiner
         /// <summary>
         /// Used for graphics alongside textures pivot point.
         /// </summary>
-        public Rectangle DestinationRectangle
+        public virtual Rectangle DestinationRectangle
         {
             get => new Rectangle((int)pos.X, (int)pos.Y, sprite.Bounds.Width, sprite.Bounds.Height);
         }

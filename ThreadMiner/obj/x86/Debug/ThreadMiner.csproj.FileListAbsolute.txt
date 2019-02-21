@@ -121,4 +121,10 @@ C:\Users\Dion\Documents\Dania Projekter\Technology - Threads\ThreadMiner\bin\Win
 C:\Users\Dion\Documents\Dania Projekter\Technology - Threads\ThreadMiner\bin\Windows\x86\Debug\Content\Button_Pressed.xnb
 C:\Users\Dion\Documents\Dania Projekter\Technology - Threads\ThreadMiner\bin\Windows\x86\Debug\Content\Panel.xnb
 C:\Users\Dion\Documents\Dania Projekter\Technology - Threads\ThreadMiner\bin\Windows\x86\Debug\Content\Default.xnb
+<<<<<<< Updated upstream
 C:\Github Projects\Gr5-RTS-spil\ThreadMiner\bin\Windows\x86\Debug\Content\Default.xnb
+=======
+C:\Users\Dion\Documents\Dania Projekter\Technology - Threads\ThreadMiner\bin\Windows\x86\Debug\Content\UnitIcon.xnb
+C:\Users\Dion\Documents\Dania Projekter\Technology - Threads\ThreadMiner\bin\Windows\x86\Debug\Content\WorkerIcon.xnb
+C:\Users\Dion\Documents\Dania Projekter\Technology - Threads\ThreadMiner\bin\Windows\x86\Debug\Content\MineIcon.xnb
+>>>>>>> Stashed changes

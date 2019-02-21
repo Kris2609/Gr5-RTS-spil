@@ -1,21 +1,24 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace ThreadMiner
 {
-    class Panel : UIElement
+    class ResourcePanel : UIElement
     {
         SpriteFont spriteFont;
         private string text;
         float displayGold;
 
-        public Panel(GameWorld currentGame, Vector2 pos, string text) : base(currentGame, pos)
+        Vector2 size;
+
+        public ResourcePanel(GameWorld currentGame, Vector2 pos, string text, Vector2 size) : base(currentGame, pos)
         {
+            this.size = size;
             this.text = text;
             base.sprite = currentGame.Content.Load<Texture2D>("Panel");
             spriteFont = currentGame.Content.Load<SpriteFont>("Default");
@@ -24,6 +27,11 @@ namespace ThreadMiner
         public override void Update(GameTime gameTime)
         {
             displayGold = currentGame.townHall.CurrGold;
+        }
+
+        public override Rectangle DestinationRectangle
+        {
+            get => new Rectangle((int)pos.X, (int)pos.Y, (int)size.X, (int)size.Y);
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -44,7 +52,7 @@ namespace ThreadMiner
                 new Vector2(DestinationRectangle.Center.X, DestinationRectangle.Y + 30),
                 Color.DarkKhaki,
                 0,
-                spriteFont.MeasureString(text+ displayGold.ToString("N0")) / 2,
+                spriteFont.MeasureString(text + displayGold.ToString("N0")) / 2,
                 1,
                 SpriteEffects.None,
                 0.1f);

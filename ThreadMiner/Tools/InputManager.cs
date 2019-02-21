@@ -20,7 +20,7 @@ namespace ThreadMiner
         int scrollVal;
         int oldScrollVal;
 
-        int camMoveSpeed = 500;
+        int camMoveSpeed = 590;
 
         bool selecting = false;
 
@@ -90,7 +90,7 @@ namespace ThreadMiner
             {
                 if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
                 {
-                    Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
+                    Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.CamPos;
                     House house = new House(gameWorld, vec, "House");
                     gameWorld.buildings.Add(house);
 
@@ -107,7 +107,7 @@ namespace ThreadMiner
             {
                 if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
                 {
-                    Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
+                    Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.CamPos;
                     Mine mine = new Mine(gameWorld, vec, "Mine");
                     gameWorld.buildings.Add(mine);
 
@@ -135,7 +135,7 @@ namespace ThreadMiner
         {
             if (mouseState.RightButton == ButtonState.Pressed && mouseState.RightButton != oldMouseState.RightButton)
             {
-                Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
+                Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.CamPos;
                 Building building = gameWorld.buildings.Find(x => x.WorldBounds.Contains(vec));
                 if (building != null )
                 {
@@ -158,7 +158,7 @@ namespace ThreadMiner
             List<Unit> selectedUnits = new List<Unit>();
             if (oldMouseState.LeftButton == ButtonState.Pressed)
             {
-                currentSelectionDrag = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
+                currentSelectionDrag = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.CamPos;
                 selectionBox = new Rectangle(
                     GameWorld.V2P(Vector2.Min(startSelectionDrag, currentSelectionDrag)),
                     GameWorld.V2P(Vector2.Max(startSelectionDrag, currentSelectionDrag) - Vector2.Min(startSelectionDrag, currentSelectionDrag))
@@ -181,7 +181,7 @@ namespace ThreadMiner
                 currentSelectionDrag = Vector2.Zero;
                 
                 selecting = true;
-                startSelectionDrag = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
+                startSelectionDrag = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.CamPos;
 
             }
         }
@@ -190,7 +190,7 @@ namespace ThreadMiner
             List<Unit> selectedUnits = new List<Unit>();
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
-                currentSelectionDrag = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
+                currentSelectionDrag = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.CamPos;
                 selectionBox = new Rectangle(
                     GameWorld.V2P(Vector2.Min(startSelectionDrag, currentSelectionDrag)),
                     GameWorld.V2P(Vector2.Max(startSelectionDrag, currentSelectionDrag) - Vector2.Min(startSelectionDrag, currentSelectionDrag))
@@ -212,7 +212,7 @@ namespace ThreadMiner
             List<Unit> selectedUnits = new List<Unit>();
             if (mouseState.LeftButton == ButtonState.Released && oldMouseState.LeftButton == ButtonState.Pressed)
             {
-                currentSelectionDrag = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.camPos;
+                currentSelectionDrag = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.CamPos;
                 selectionBox = new Rectangle(
                     GameWorld.V2P(Vector2.Min(startSelectionDrag, currentSelectionDrag)),
                     GameWorld.V2P(Vector2.Max(startSelectionDrag, currentSelectionDrag) - Vector2.Min(startSelectionDrag, currentSelectionDrag))
@@ -252,8 +252,8 @@ namespace ThreadMiner
                 keyboardState.IsKeyDown(Keys.S) || keyboardState.IsKeyDown(Keys.Down) ? 1 : 0
                 );
 
-            Vector2 camMove = (camMoveAW + camMoveDS) * (float)gameTime.ElapsedGameTime.TotalSeconds * camMoveSpeed;
-            cam.camPos += camMove;
+            Vector2 camMove = (camMoveAW + camMoveDS) * (float)gameTime.ElapsedGameTime.TotalSeconds * camMoveSpeed * (1f / cam.Zoom);
+            cam.CamPos += camMove;
 
             cam.CalcFullMatrix();
         }

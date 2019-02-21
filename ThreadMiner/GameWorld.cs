@@ -129,12 +129,12 @@ namespace ThreadMiner
         {
             GraphicsDevice.Clear(Color.ForestGreen);
 
-            spriteBatch.Begin(transformMatrix: cam.Transform, samplerState: SamplerState.PointWrap);
+            spriteBatch.Begin(transformMatrix: cam.Transform, samplerState: SamplerState.PointWrap, blendState: BlendState.NonPremultiplied, sortMode: SpriteSortMode.FrontToBack);
             background.Draw(spriteBatch);
             spriteBatch.End();
 
 
-            spriteBatch.Begin(transformMatrix: cam.Transform, samplerState: SamplerState.PointClamp);
+            spriteBatch.Begin(transformMatrix: cam.Transform, samplerState: SamplerState.PointClamp, blendState: BlendState.NonPremultiplied, sortMode: SpriteSortMode.FrontToBack);
             foreach (Building building in buildings)
             {
                 building.Draw(gameTime, spriteBatch);
@@ -146,7 +146,9 @@ namespace ThreadMiner
                 unit.DrawAnimated(gameTime, spriteBatch);
                 //spriteBatch.Draw(debugRectangle,unit.WorldBounds ,Color.Green);
             }
+            spriteBatch.End();
 
+            spriteBatch.Begin(transformMatrix: cam.Transform);
             if (inputManager.Selecting)
             {
                 spriteBatch.Draw(debugRectangle, inputManager.SelectionBox, new Color(0, 50, 10, 1));

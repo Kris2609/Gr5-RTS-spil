@@ -3,7 +3,7 @@
   <SourceFile>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/TownHall.png</SourceFile>
   <SourceTime>2019-02-20T11:38:25.5843893+01:00</SourceTime>
   <DestFile>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/TownHall.xnb</DestFile>
-  <DestTime>2019-02-21T22:26:32.3992517+01:00</DestTime>
+  <DestTime>2019-02-21T23:22:12.2664126+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
@@ -14,7 +14,7 @@
   </Parameters>
   <Parameters>
     <Key>ColorKeyEnabled</Key>
-    <Value>True</Value>
+    <Value>False</Value>
   </Parameters>
   <Parameters>
     <Key>GenerateMipmaps</Key>

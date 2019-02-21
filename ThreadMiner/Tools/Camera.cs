@@ -31,8 +31,11 @@ namespace ThreadMiner
 
         public float Zoom { get => zoom; set { zoom = MathHelper.Clamp(value, minZoom, maxZoom); } }
 
+        public Vector2 mapBounds { get => new Vector2(2560 - ((HalfSizeX) * (1f / Zoom)), 2560 - ((HalfSizeY) * (1f / Zoom))); }
 
-        public Vector2 camPos;
+        public Vector2 CamPos { get => camPos; set => camPos = Vector2.Clamp( value, -mapBounds, mapBounds); }
+
+        private Vector2 camPos;
 
         public void CalcFullMatrix()
         {

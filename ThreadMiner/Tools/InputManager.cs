@@ -93,30 +93,29 @@ namespace ThreadMiner
         {
             if (gameWorld.townHall.CurrGold >= House.cost)
             {
-                if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
+                Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.CamPos;
+                Barrack barrack = new Barrack(gameWorld, vec, "Barrack");
+                bool intersects = false;
+                foreach (Building building in gameWorld.buildings)
                 {
-                    Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.CamPos;
-                    Barrack barrack = new Barrack(gameWorld, vec, "Barrack");
-                    bool intersects = false;
-                    foreach (Building building in gameWorld.buildings)
+                    if (barrack.WorldBounds.Intersects(building.WorldBounds))
                     {
-                        if (barrack.WorldBounds.Intersects(building.WorldBounds))
-                        {
-                            intersects = true;
-                            buildingInterSection = Rectangle.Intersect(barrack.WorldBounds, building.WorldBounds);
-                        }
-
+                        intersects = true;
+                        buildingInterSection = Rectangle.Intersect(barrack.WorldBounds, building.WorldBounds);
                     }
-                    if (!intersects)
+
+                }
+                if (!intersects)
+                {
+                    if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
                     {
                         gameWorld.buildings.Add(barrack);
 
                         currentRightUse = RightButtonUse.ControlUnits;
                         gameWorld.townHall.CurrGold -= Barrack.cost;
                     }
-
+                    buildingInterSection = new Rectangle(0, 0, 0, 0);
                 }
-
             }
         }
 
@@ -124,8 +123,6 @@ namespace ThreadMiner
         {
             if (gameWorld.townHall.CurrGold >= House.cost)
             {
-                if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
-                {
                     Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.CamPos;
                     House house = new House(gameWorld, vec, "House");
                     bool intersects = false;
@@ -137,14 +134,18 @@ namespace ThreadMiner
                             buildingInterSection = Rectangle.Intersect(house.WorldBounds, building.WorldBounds);
                         }
 
-                    }
-                    if (!intersects)
+                }
+                if (!intersects)
+                {
+                    if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
                     {
+
                         gameWorld.buildings.Add(house);
 
                         currentRightUse = RightButtonUse.ControlUnits;
                         gameWorld.townHall.CurrGold -= House.cost;
                     }
+                    buildingInterSection = new Rectangle(0, 0, 0, 0);
                 }
             }
         }
@@ -153,27 +154,30 @@ namespace ThreadMiner
         {
             if (gameWorld.townHall.CurrGold >= Mine.cost)
             {
-                if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
-                {
-                    Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.CamPos;
-                    Mine mine = new Mine(gameWorld, vec, "Mine");
-                    bool intersects = false;
-                    foreach (Building building in gameWorld.buildings)
-                    {
-                        if (mine.WorldBounds.Intersects(building.WorldBounds))
-                        {
-                            intersects = true;
-                            buildingInterSection = Rectangle.Intersect(mine.WorldBounds, building.WorldBounds);
-                        }
 
-                    }
-                    if (!intersects)
+                Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.CamPos;
+                Mine mine = new Mine(gameWorld, vec, "Mine");
+                bool intersects = false;
+                foreach (Building building in gameWorld.buildings)
+                {
+                    if (mine.WorldBounds.Intersects(building.WorldBounds))
                     {
+                        intersects = true;
+                        buildingInterSection = Rectangle.Intersect(mine.WorldBounds, building.WorldBounds);
+                    }
+
+                }
+                if (!intersects)
+                {
+                    if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
+                    {
+
                         gameWorld.buildings.Add(mine);
 
                         currentRightUse = RightButtonUse.ControlUnits;
                         gameWorld.townHall.CurrGold -= Mine.cost;
                     }
+                    buildingInterSection = new Rectangle(0, 0, 0, 0);
                 }
             }
         }
@@ -214,10 +218,24 @@ namespace ThreadMiner
                     {
                         foreach (Unit unit in gameWorld.selectedUnits)
                         {
-                            if (unit.GetType() == typeof(Worker))
+                            if (unit != null)
                             {
-                                ((Worker)unit).CurrBarrack = (Barrack)building;
+                                if (unit.GetType() == typeof(Worker))
+                                {
+                                    ((Worker)unit).CurrBarrack = (Barrack)building;
+                                }
                             }
+                        }
+                    }
+                }
+                Enemy enemy = gameWorld.enemies.Find(x => x.WorldBounds.Contains(vec));
+                if (enemy != null)
+                {
+                    foreach (Unit unit in gameWorld.selectedUnits)
+                    {
+                        if (unit.GetType() == typeof(Swordsman))
+                        {
+                            ((Swordsman)unit).targetEnemy = enemy;
                         }
                     }
                 }

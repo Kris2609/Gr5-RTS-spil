@@ -8,10 +8,21 @@ using System.Threading.Tasks;
 
 namespace ThreadMiner
 {
-    abstract class Enemy
+    public abstract class Enemy
     {
-        protected int health;
-        protected int damage;
+        protected float health;
+        public float Health { get => health;
+            set
+            {
+                if (value <= 0)
+                {
+                    currentGame.enemies.Remove(this);
+                    EnemySpawner.currEnemies--;
+                }
+                health = value;
+            }
+        }
+        protected float damage;
         protected int movementSpeed;
         protected GameWorld currentGame;
         protected Vector2 pos;
@@ -59,7 +70,7 @@ namespace ThreadMiner
                     spriteSheet,                                    //texture
                     DestinationRectangle,                           //destinationRectangle (pos, size)
                     frameRect,                                      //sourceRectangle
-                    Color.Red,                                    //color
+                    Color.White,                                    //color
                     0f,                                             //rotation
                     Vector2.One * 64,                               //pivot (half tex-size for middle pivot)
                     SpriteEffects.None,                             //effects
@@ -81,5 +92,6 @@ namespace ThreadMiner
         {
             get => new Rectangle((int)pos.X - 64, (int)pos.Y - 64, 128, 128);
         }
+        public Vector2 Pos { get => pos; set => pos = value; }
     }
 }

@@ -16,6 +16,7 @@ namespace ThreadMiner
         public WarriorState state;
 
         public Building targetBuilding;
+        public Enemy targetEnemy;
 
         public Swordsman(GameWorld currentGame, Vector2 pos, int animationFPS, WarriorJob job) : base("Warrior", currentGame, pos, animationFPS)
         {
@@ -30,19 +31,64 @@ namespace ThreadMiner
 
         public override void Update(GameTime gameTime)
         {
-            if (canReach(targetBuilding))
+            canSee();
+            if (targetEnemy != null)
             {
-                targetBuilding = currentGame.buildings[new Random().Next(0, currentGame.buildings.Count)];
-
+                if (canReach(targetEnemy))
+                {
+                    Attack(gameTime);
+                    if (targetEnemy.Health <= 0)
+                    {
+                        targetEnemy = null;
+                    }
+                }
+                else
+                {
+                    Move(targetEnemy.Pos, gameTime);
+                }
             }
             else
             {
-                Move(targetBuilding.Pos, gameTime);
+                if (canReach(targetBuilding))
+                {
+                    targetBuilding = currentGame.buildings[new Random().Next(0, currentGame.buildings.Count)];
+
+                }
+                else
+                {
+                    Move(targetBuilding.Pos, gameTime);
+                }
             }
         }
+        bool canSee()
+        {
+            foreach (Enemy enemy in currentGame.enemies)
+            {
+                if (Vector2.Distance(enemy.Pos, pos) < 950)
+                {
+                    if (targetEnemy == null || targetEnemy.Health <= 0 && enemy != null || enemy.Health > 0)
+                    {
+                        targetEnemy = enemy;
+                    }
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        private void Attack(GameTime gameTime)
+        {
+            job = WarriorJob.Fight;
+            targetEnemy.Health -= damage * (float)gameTime.ElapsedGameTime.TotalSeconds;
+        }
+
         private bool canReach(Building building)
         {
             return Vector2.Distance(pos, building.Pos) <= building.DestinationRectangle.Width / 4;
+        }
+        private bool canReach(Enemy enemy)
+        {
+            return Vector2.Distance(pos, enemy.Pos) <= enemy.DestinationRectangle.Width / 4;
         }
         public bool Move(Vector2 target, GameTime gameTime)
         {

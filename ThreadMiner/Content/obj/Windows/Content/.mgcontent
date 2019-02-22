@@ -4,7 +4,6 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-<<<<<<< Updated upstream
     <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Background.png</File>
     <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Barrack.png</File>
     <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/BarrackIcon.png</File>
@@ -23,26 +22,6 @@
     <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/TownHall.png</File>
     <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/UnitIcon.png</File>
     <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/WorkerIcon.png</File>
-=======
-    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/Background.png</File>
-    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/Barrack.png</File>
-    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/BarrackIcon.png</File>
-    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/Button_Open.png</File>
-    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/Button_Pressed.png</File>
-    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/Default.spritefont</File>
-    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/GoldIcon.png</File>
-    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/House.png</File>
-    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/Mine.png</File>
-    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/MineIcon.png</File>
-    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/Panel.png</File>
-    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/spritesheet_Smoke.png</File>
-    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/spritesheet_Walk_Mine.png</File>
-    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/spritesheet_Warrior.png</File>
-    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/spritesheet_Wolf.png</File>
-    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/TownHall.png</File>
-    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/UnitIcon.png</File>
-    <File>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/WorkerIcon.png</File>
->>>>>>> Stashed changes
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

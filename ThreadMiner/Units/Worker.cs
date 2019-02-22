@@ -57,7 +57,39 @@ namespace ThreadMiner
 
         public override void Update(GameTime gameTime)
         {
-            if (currMine != null )
+
+            //Bit of a mess... Oopsie
+
+            //Use of delegates and threads in the "Mine" method and "Deposit" method.
+            //Threads handled using a Semaphore and Mutex respectively.
+
+            //In general:
+
+            //Am i assigned a mine? Can i mine more gold? : Can i reach the mine right now? : Mine!
+            //Can i reach the TownHall? : Deposit!
+
+            //Am i assigned a barrack? : Can i reach it? Turn into a warrior!
+            if (currBarrack != null)
+            {
+                if (canReach(currBarrack))
+                {
+                    if (t == null || !t.IsAlive)
+                    {
+                        t = new Thread(delegate () { TransformWarrior(currBarrack); });
+                        t.Start();
+                        t.IsBackground = true;
+                        state = WorkerState.Idling;
+                    }
+                    state = WorkerState.Idling;
+                    //throw new Exception();
+                }
+                else
+                {
+
+                    Move(CurrBarrack.Pos, gameTime);
+                }
+            }
+            else if (currMine != null)
             {
                 if (currCarry < carryCap && currMine.GoldLeft > 0)
                 {
@@ -88,7 +120,7 @@ namespace ThreadMiner
                 }
                 else
                 {
-                    if (canReach(currentGame.buildings[0]))
+                    if (canReach(currentGame.townHall))
                     {
                         if (t == null || !t.IsAlive)
                         {
@@ -103,34 +135,23 @@ namespace ThreadMiner
                     else
                     {
 
-                        Move(currentGame.buildings[0].Pos, gameTime);
+                        Move(currentGame.townHall.Pos, gameTime);
                         state = WorkerState.Walking;
                         //throw new Exception();
                     }
                 }
             }
-            else if (currBarrack != null)
+            else
             {
-                if (canReach(currBarrack))
+                if (!canReach(currentGame.townHall))
                 {
-                    if (t == null || !t.IsAlive)
-                    {
-                        t = new Thread(delegate () { TransformWarrior(currBarrack); });
-                        t.Start();
-                        t.IsBackground = true;
-                        state = WorkerState.Idling;
-                    }
-                    state = WorkerState.Idling;
-                    //throw new Exception();
+                    Move(currentGame.townHall.Pos, gameTime);
                 }
                 else
                 {
-
-                    Move(CurrBarrack.Pos, gameTime);
+                    job = WorkerJob.Idle;
                 }
             }
-                
-            
             changedState = (oldState == state);
 
 

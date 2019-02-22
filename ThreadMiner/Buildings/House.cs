@@ -10,14 +10,18 @@ namespace ThreadMiner
     class House : Building
     {
         public static new int cost = 80;
-
+        bool addedBonus = false;
         public House(GameWorld currentGame, Vector2 pos, string spriteName) : base(120, currentGame, pos, spriteName)
         {
-            currentGame.townHall.UnitCap += 6;
         }
 
         public override void Update(GameTime gameTime)
         {
+            if (!addedBonus)
+            {
+                addedBonus = true;
+                currentGame.townHall.UnitCap += 6;
+            }
         }
     }
 }

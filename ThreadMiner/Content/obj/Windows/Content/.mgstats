@@ -1,5 +1,4 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-<<<<<<< Updated upstream
 "C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Background.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/Background.xnb","TextureProcessor","Texture2DContent",103732,1048661,0.2398416
 "C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Barrack.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/Barrack.xnb","TextureProcessor","Texture2DContent",33424,589909,0.044975
 "C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/BarrackIcon.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/BarrackIcon.xnb","TextureProcessor","Texture2DContent",1667,16469,0.0179892
@@ -14,9 +13,7 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Smoke.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/spritesheet_Smoke.xnb","TextureProcessor","Texture2DContent",8620,409685,0.0489695
 "C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Walk_Mine.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/spritesheet_Walk_Mine.xnb","TextureProcessor","Texture2DContent",30418,2359381,0.0859513
 "C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Warrior.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/spritesheet_Warrior.xnb","TextureProcessor","Texture2DContent",72907,2359381,0.108936
-"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Wolf.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/spritesheet_Wolf.xnb","TextureProcessor","Texture2DContent",149799,9437269,0.6266421
+"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Wolf.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/spritesheet_Wolf.xnb","TextureProcessor","Texture2DContent",149799,9437269,0.6556248
 "C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/TownHall.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/TownHall.xnb","TextureProcessor","Texture2DContent",31628,1048661,0.0529694
 "C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/UnitIcon.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/UnitIcon.xnb","TextureProcessor","Texture2DContent",953,16469,0.0129914
 "C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/WorkerIcon.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/WorkerIcon.xnb","TextureProcessor","Texture2DContent",898,16469,0.0160103
-=======
->>>>>>> Stashed changes

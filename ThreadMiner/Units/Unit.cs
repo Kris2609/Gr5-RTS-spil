@@ -10,12 +10,12 @@ namespace ThreadMiner
 {
     public abstract class Unit
     {
-        protected int health;
+        protected float health;
         protected string name;
-        protected int damage;
+        protected float damage;
         public static readonly int cost = 90;
         
-        public int Health { get => health;
+        public float Health { get => health;
             set
             {
                 if (value <= 0)
@@ -53,7 +53,12 @@ namespace ThreadMiner
         protected float animationIndex;
         protected int animationFPS;
 
-
+        /// <summary>
+        /// Should not be used directly as movement alongside animation is handled in the Move() method.
+        /// </summary>
+        /// <param name="target">The position to move towards.</param>
+        /// <param name="gameTime">The GameTime, used to get the elapsed time.</param>
+        /// <returns></returns>
         public virtual Vector2 MoveTowards(Vector2 target, GameTime gameTime)
         {
             Vector2 moveVec = target - pos;
@@ -65,6 +70,12 @@ namespace ThreadMiner
             pos += moveVec;
             return moveVec;
         }
+        /// <summary>
+        /// Returns the Vector that would be moved by MoveTowards without actually moving the Unit.
+        /// </summary>
+        /// <param name="target">The position to move towards.</param>
+        /// <param name="gameTime">The GameTime, used to get the elapsed time.</param>
+        /// <returns></returns>
         public virtual Vector2 CalcTowards(Vector2 target, GameTime gameTime)
         {
             Vector2 moveVec = target - pos;
@@ -90,7 +101,12 @@ namespace ThreadMiner
         {
             get => new Rectangle((int)pos.X-32, (int)pos.Y-32, 64, 64);
         }
-
+        /// <summary>
+        /// The base Draw method. Should be overloaded by a Move method to handle animations via the spriteSheetRow.
+        /// </summary>
+        /// <param name="gameTime">The GameTime, used to get the elapsed time.</param>
+        /// <param name="spriteBatch"> The spriteBatch that should render this unit.</param>
+        /// <param name="spriteSheetRow"> The row of the spritesheet to be rendered.</param>
         public virtual void DrawAnimated(GameTime gameTime, SpriteBatch spriteBatch, int spriteSheetRow = 0)
         {
             int frameCount = spriteSheet.Width / 64;

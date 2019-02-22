@@ -8,14 +8,14 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ThreadMiner
 {
-    class Wolf : Enemy
+    public class Wolf : Enemy
     {
-        float sightRange = 400;
+        float sightRange = 1000;
 
-        public enum WolfJob { Mine, WDown, WLeft, WRight, WUp, Idle }
+        public enum WolfJob { Bite, WDown, WLeft, WRight, WUp, Idle }
         public WolfJob job;
 
-        public Wolf(string name, GameWorld currentGame, Vector2 pos, int animationFPS) : base(name, currentGame, pos, animationFPS)
+        public Wolf(GameWorld currentGame, Vector2 pos, int animationFPS) : base("Wolf", currentGame, pos, animationFPS)
         {
             spriteSheet = currentGame.Content.Load<Texture2D>("spritesheet_Wolf");
         }
@@ -27,11 +27,11 @@ namespace ThreadMiner
             {
                 if (Vector2.Distance(unit.Pos, pos)<sightRange)
                 {
-                    if (target == null && target.Health <= 0 && unit != null && unit.Health > 0)
+                    if (target == null)
                     {
                         target = unit;
                     }
-                    return false;
+                    return true;
                 }
             }
             return false;
@@ -39,12 +39,22 @@ namespace ThreadMiner
 
         bool canAttack(Unit unit)
         {
+            if (unit == null)
+            {
+                return false;
+            }
             return (unit.Pos - pos).Length() < 64;
         }
 
-        public void Attack()
+        public void Attack(GameTime gameTime)
         {
-            target.Health -= damage;
+            job = WolfJob.Bite;
+            target.Health -= damage * (float)gameTime.ElapsedGameTime.TotalSeconds;
+        }
+
+        public override void DrawAnimated(GameTime gameTime, SpriteBatch spriteBatch, int spriteIndex)
+        {
+            base.DrawAnimated(gameTime, spriteBatch, (int)job);
         }
 
         public virtual Vector2 CalcTowards(Vector2 target, GameTime gameTime)
@@ -95,13 +105,17 @@ namespace ThreadMiner
         {
             if (canAttack(target))
             {
-                Attack();
+                Attack(gameTime);
             }
-            if (canSee())
+            else if (canSee())
             {
                 Move(target.Pos, gameTime);
             }
-            
+            else
+            {
+                Move(new Vector2(gameTime.ElapsedGameTime.Milliseconds, 1000 - gameTime.ElapsedGameTime.Milliseconds), gameTime);
+            }
+
         }
     }
 }

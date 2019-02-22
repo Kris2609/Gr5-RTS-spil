@@ -63,6 +63,7 @@
     <Compile Include="Units\Swordsman.cs" />
     <Compile Include="Units\Unit.cs" />
     <Compile Include="Units\Worker.cs" />
+    <Compile Include="UserInterface\BarrackPanel.cs" />
     <Compile Include="UserInterface\HousePanel.cs" />
     <Compile Include="UserInterface\MinePanel.cs" />
     <Compile Include="UserInterface\UnitPanel.cs" />

@@ -38,7 +38,7 @@ namespace ThreadMiner
         
         Vector2 mousePos;
 
-        public enum RightButtonUse { PlaceWorker, ControlUnits, PlaceHouse, PlaceMine};
+        public enum RightButtonUse { PlaceWorker, ControlUnits, PlaceHouse, PlaceMine, PlaceBarrack};
         public RightButtonUse currentRightUse= RightButtonUse.ControlUnits;
 
 
@@ -72,6 +72,9 @@ namespace ThreadMiner
                 case RightButtonUse.PlaceMine:
                     PlaceMine(gameWorld.cam);
                     break;
+                case RightButtonUse.PlaceBarrack:
+                    PlaceBarrack(gameWorld.cam);
+                    break;
             }
             StartSelectionDrag(gameWorld.cam);
             SelectionDrag(gameWorld.cam);
@@ -82,6 +85,22 @@ namespace ThreadMiner
         {
             oldScrollVal = scrollVal;
             oldMouseState = mouseState;
+        }
+        private void PlaceBarrack(Camera cam)
+        {
+            if (gameWorld.townHall.CurrGold >= House.cost)
+            {
+                if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
+                {
+                    Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.CamPos;
+                    Barrack barrack = new Barrack(gameWorld, vec, "Barrack");
+                    gameWorld.buildings.Add(barrack);
+
+                    currentRightUse = RightButtonUse.ControlUnits;
+                    gameWorld.townHall.CurrGold -= Barrack.cost;
+                }
+
+            }
         }
 
         private void PlaceHouse(Camera cam)
@@ -122,7 +141,7 @@ namespace ThreadMiner
             if (gameWorld.townHall.CurrGold >= Unit.cost)
             {
                 Vector2 vec = gameWorld.townHall.Pos + 150 * new Vector2((float)Math.Sin((new Random()).Next()), (float)Math.Cos((new Random()).Next()));
-                Worker worker = new Worker(gameWorld, vec, 30, Worker.WorkerJob.Mine);
+                Worker worker = new Worker(gameWorld, vec, 30, Worker.WorkerJob.Idle);
 
                 gameWorld.units.Add(worker);
                 gameWorld.townHall.CurrGold -= Unit.cost;
@@ -146,6 +165,16 @@ namespace ThreadMiner
                             if (unit.GetType() == typeof(Worker))
                             {
                                 ((Worker)unit).CurrMine = (Mine)building;
+                            }
+                        }
+                    }
+                    else if(building.GetType() == typeof(Barrack))
+                    {
+                        foreach (Unit unit in gameWorld.selectedUnits)
+                        {
+                            if (unit.GetType() == typeof(Worker))
+                            {
+                                ((Worker)unit).CurrBarrack = (Barrack)building;
                             }
                         }
                     }

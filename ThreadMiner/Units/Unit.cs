@@ -30,6 +30,7 @@ namespace ThreadMiner
 
         protected GameWorld currentGame;
         protected Vector2 pos;
+        public Vector2 Pos { get => pos; }
 
         protected float movementSpeed;
         

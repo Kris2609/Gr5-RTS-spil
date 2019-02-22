@@ -19,7 +19,11 @@ namespace ThreadMiner
         WorkerState oldState;
 
         Mine currMine;
-        internal Mine CurrMine { get => currMine; set => currMine = value; }
+        public Mine CurrMine { get => currMine; set => currMine = value; }
+        
+        Barrack currBarrack;
+        public Barrack CurrBarrack { get => currBarrack; set => currBarrack = value; }
+
 
         public float MinePerSec;
         public float currCarry;
@@ -35,6 +39,7 @@ namespace ThreadMiner
             this.job = job;
             this.MinePerSec = 10;
             this.carryCap = 50;
+            currMine = null;
             spriteSheet = currentGame.Content.Load<Texture2D>("spritesheet_Walk_Mine");
         }
         
@@ -43,13 +48,18 @@ namespace ThreadMiner
             base.DrawAnimated(gameTime, spriteBatch, (int)job);
         }
 
+        private bool canReach(Building building)
+        {
+            return Vector2.Distance(pos, building.Pos) <= building.DestinationRectangle.Width / 4;
+        }
+
         public delegate void MineOnThread(Mine m);
 
         public override void Update(GameTime gameTime)
         {
-            if (currMine == null || currMine.GoldLeft >=0)
+            if (currMine != null )
             {
-                if (currCarry < carryCap&& currMine != null)
+                if (currCarry < carryCap && currMine.GoldLeft > 0)
                 {
                     if (canReach(currMine))
                     {
@@ -94,15 +104,33 @@ namespace ThreadMiner
                     {
 
                         Move(currentGame.buildings[0].Pos, gameTime);
-                        state = WorkerState.Idling;
+                        state = WorkerState.Walking;
                         //throw new Exception();
                     }
                 }
             }
-            else
+            else if (currBarrack != null)
             {
-                job = WorkerJob.Idle;
+                if (canReach(currBarrack))
+                {
+                    if (t == null || !t.IsAlive)
+                    {
+                        t = new Thread(delegate () { TransformWarrior(currBarrack); });
+                        t.Start();
+                        t.IsBackground = true;
+                        state = WorkerState.Idling;
+                    }
+                    state = WorkerState.Idling;
+                    //throw new Exception();
+                }
+                else
+                {
+
+                    Move(CurrBarrack.Pos, gameTime);
+                }
             }
+                
+            
             changedState = (oldState == state);
 
 
@@ -110,10 +138,7 @@ namespace ThreadMiner
         }
         
 
-        private bool canReach(Building building)
-        {
-            return Vector2.Distance(pos, building.Pos) <= building.DestinationRectangle.Width / 4;
-        }
+        
 
         public bool Move(Vector2 target, GameTime gameTime)
         {
@@ -179,6 +204,21 @@ namespace ThreadMiner
             currCarry -= hall.DepositGold(currCarry);
             Thread.Sleep(500);
             hall.accesLimiter.ReleaseMutex();
+        }
+
+        public void TransformWarrior(Barrack barrack)
+        {
+            job = WorkerJob.Idle;
+            barrack.accesLimiter.WaitOne();
+            try
+            {
+                Thread.Sleep((int)barrack.TrainingTime);
+                barrack.TrainUnit(this);
+            }
+            finally
+            {
+                barrack.accesLimiter.ReleaseMutex();
+            }
         }
     }
 }

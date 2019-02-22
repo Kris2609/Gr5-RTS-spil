@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
 
 namespace ThreadMiner
@@ -71,6 +72,7 @@ namespace ThreadMiner
             uiElements.Add(new UnitPanel(this, new Vector2(GraphicsDevice.Viewport.Bounds.Width - 100, GraphicsDevice.Viewport.Bounds.Height - 100), "Unit"));
             uiElements.Add(new HousePanel(this, new Vector2(GraphicsDevice.Viewport.Bounds.Width - 200, GraphicsDevice.Viewport.Bounds.Height - 100), "House"));
             uiElements.Add(new MinePanel(this, new Vector2(GraphicsDevice.Viewport.Bounds.Width - 300, GraphicsDevice.Viewport.Bounds.Height - 100), "Mine"));
+            uiElements.Add(new BarrackPanel(this, new Vector2(GraphicsDevice.Viewport.Bounds.Width - 400, GraphicsDevice.Viewport.Bounds.Height - 100), "Barrack"));
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
             inputManager = new InputManager(this);
@@ -168,6 +170,7 @@ namespace ThreadMiner
             spriteBatch.End();
 
             spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+            spriteBatch.Draw(debugRectangle, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), new Color((byte)0, (byte)0, (byte)0, (byte)(80*(1+Math.Cos(Math.PI+ 0.05f*gameTime.TotalGameTime.TotalSeconds)))));
             foreach (UIElement ui in uiElements)
             {
                 ui.Draw(gameTime, spriteBatch);

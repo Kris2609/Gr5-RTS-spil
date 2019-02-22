@@ -16,7 +16,7 @@ namespace ThreadMiner
         protected float radius;//how big range the tower has
         
         
-        protected Enemies.Enemy target; //shows whitch enemy to shoot
+        protected Enemy target; //shows whitch enemy to shoot
         
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace ThreadMiner
         /// <summary>
         /// allows the tower to have a target 
         /// </summary>
-        public Enemies.Enemy Target
+        public Enemy Target
         {
             get { return target; }
         }

@@ -1,5 +1,7 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
 "C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Background.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/Background.xnb","TextureProcessor","Texture2DContent",103732,1048661,0.2048833
+"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Barrack.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/Barrack.xnb","TextureProcessor","Texture2DContent",33424,589909,0.1959281
+"C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/BarrackIcon.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/BarrackIcon.xnb","TextureProcessor","Texture2DContent",1667,16469,0.1689049
 "C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Button_Open.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/Button_Open.xnb","TextureProcessor","Texture2DContent",440,12245,0.2038827
 "C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Button_Pressed.png","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/Button_Pressed.xnb","TextureProcessor","Texture2DContent",440,12245,0.0159896
 "C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Default.spritefont","C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/Default.xnb","FontDescriptionProcessor","SpriteFontContent",2022,37905,0.2448756

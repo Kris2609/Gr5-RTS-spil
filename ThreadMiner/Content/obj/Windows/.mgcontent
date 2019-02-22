@@ -18,11 +18,13 @@
     <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Smoke.png</File>
     <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Walk_Mine.png</File>
     <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Warrior.png</File>
+    <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Wolf.png</File>
     <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/TownHall.png</File>
     <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/UnitIcon.png</File>
     <File>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/WorkerIcon.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

@@ -17,7 +17,7 @@ namespace ThreadMiner
 
         public Wolf(string name, GameWorld currentGame, Vector2 pos, int animationFPS) : base(name, currentGame, pos, animationFPS)
         {
-            spriteSheet = currentGame.Content.Load<Texture2D>("spritesheet_Warrior");
+            spriteSheet = currentGame.Content.Load<Texture2D>("spritesheet_Wolf");
         }
         
 

@@ -138,7 +138,7 @@ namespace ThreadMiner
 
         void PlaceWorker(Camera cam)
         {
-            if (gameWorld.townHall.CurrGold >= Unit.cost)
+            if (gameWorld.townHall.CurrGold >= Unit.cost && gameWorld.units.Count < gameWorld.townHall.UnitCap)
             {
                 Vector2 vec = gameWorld.townHall.Pos + 150 * new Vector2((float)Math.Sin((new Random()).Next()), (float)Math.Cos((new Random()).Next()));
                 Worker worker = new Worker(gameWorld, vec, 30, Worker.WorkerJob.Idle);

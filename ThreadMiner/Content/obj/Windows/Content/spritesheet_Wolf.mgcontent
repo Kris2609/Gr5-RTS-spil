@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/spritesheet_Wolf.png</SourceFile>
-  <SourceTime>2019-02-22T05:13:15.2794356+01:00</SourceTime>
-  <DestFile>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/spritesheet_Wolf.xnb</DestFile>
-  <DestTime>2019-02-22T07:30:49.8775795+01:00</DestTime>
+  <SourceFile>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/spritesheet_Wolf.png</SourceFile>
+  <SourceTime>2019-02-22T06:36:10.2036061+01:00</SourceTime>
+  <DestFile>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/bin/Windows/Content/spritesheet_Wolf.xnb</DestFile>
+  <DestTime>2019-02-22T09:59:24.6970175+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

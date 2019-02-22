@@ -208,9 +208,13 @@ namespace ThreadMiner
                     {
                         foreach (Unit unit in gameWorld.selectedUnits)
                         {
-                            if (unit.GetType() == typeof(Worker))
+                            if (unit != null)
                             {
-                                ((Worker)unit).CurrMine = (Mine)building;
+
+                                if (unit.GetType() == typeof(Worker))
+                                {
+                                    ((Worker)unit).CurrMine = (Mine)building;
+                                }
                             }
                         }
                     }

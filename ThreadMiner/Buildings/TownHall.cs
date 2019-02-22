@@ -20,7 +20,7 @@ namespace ThreadMiner
 
         public TownHall(GameWorld currentGame, Vector2 pos, string spriteName) : base(500, currentGame, pos, spriteName)
         {
-            this.currGold = 9999;
+            this.currGold = 0;
             accesLimiter = new Mutex();
         }
 

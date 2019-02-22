@@ -13,7 +13,7 @@ namespace ThreadMiner
         Enemy typeToSpawn;
         GameWorld gameWorld;
 
-        public static int EnemyCap = 5;
+        public static int EnemyCap = 2;
         public static int currEnemies = 0;
         public static int WaveID = 0;
         Random rand;
@@ -28,7 +28,7 @@ namespace ThreadMiner
         }
         public void SpawnEnemy()
         {
-            Thread.Sleep(500);
+            Thread.Sleep(60000);
             while (true)
             {
                 WaveID++;
@@ -39,11 +39,11 @@ namespace ThreadMiner
                     gameWorld.enemies.Add(new Wolf(gameWorld, new Vector2(2560 * (float)Math.Sin(tmp), 2560 * (float)Math.Cos(tmp)), 30));
 
                 }
-                if (WaveID %10 ==0)
+                if (WaveID % 5 ==0)
                 {
-                    EnemyCap += WaveID/2;
+                    EnemyCap += 1;
                 }
-                Thread.Sleep(30000);
+                Thread.Sleep(90000);
             }
         }
 

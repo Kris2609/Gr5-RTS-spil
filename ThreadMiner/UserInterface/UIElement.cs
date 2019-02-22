@@ -33,7 +33,7 @@ namespace ThreadMiner
 
         public virtual Rectangle CostRectangle
         {
-            get => new Rectangle(DestinationRectangle.X, (int)(DestinationRectangle.Y / 1.15f), DestinationRectangle.Width, DestinationRectangle.Height / 2);
+            get => new Rectangle(DestinationRectangle.X, (int)(DestinationRectangle.Y - 50), DestinationRectangle.Width, DestinationRectangle.Height / 2);
         }
 
         /// <summary>

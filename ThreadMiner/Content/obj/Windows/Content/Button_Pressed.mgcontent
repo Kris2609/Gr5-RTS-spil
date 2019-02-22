@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Button_Pressed.png</SourceFile>
-  <SourceTime>2019-02-21T12:10:29.293675+01:00</SourceTime>
-  <DestFile>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Content/Button_Pressed.xnb</DestFile>
-  <DestTime>2019-02-21T23:22:11.9306058+01:00</DestTime>
+  <SourceFile>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/Button_Pressed.png</SourceFile>
+  <SourceTime>2019-02-21T12:15:32.9974677+01:00</SourceTime>
+  <DestFile>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/bin/Windows/Content/Button_Pressed.xnb</DestFile>
+  <DestTime>2019-02-22T04:28:08.3044953+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

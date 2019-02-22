@@ -66,8 +66,9 @@
     <Compile Include="UserInterface\BarrackPanel.cs" />
     <Compile Include="UserInterface\HousePanel.cs" />
     <Compile Include="UserInterface\MinePanel.cs" />
+    <Compile Include="UserInterface\ResourcePanel - Copy.cs" />
     <Compile Include="UserInterface\UnitPanel.cs" />
-    <Compile Include="UserInterface\ResourcePanel.cs" />
+    <Compile Include="UserInterface\PopulationPanel.cs" />
     <Compile Include="UserInterface\UIElement.cs" />
   </ItemGroup>
   <ItemGroup>

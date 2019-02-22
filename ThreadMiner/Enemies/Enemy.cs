@@ -17,7 +17,7 @@ namespace ThreadMiner
         protected Vector2 pos;
         protected int animationFPS;
 
-        protected <Enemy> enemyGroup;
+        protected List<Enemy> enemyGroup;
         protected Unit target;
         protected Texture2D spriteSheet;
         protected float animationIndex;

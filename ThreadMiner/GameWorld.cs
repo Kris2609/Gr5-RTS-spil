@@ -68,7 +68,8 @@ namespace ThreadMiner
             buildings.Add(new Mine(this, new Vector2(0, 500), "Mine"));
             units = new List<Unit>();
             uiElements = new List<UIElement>();
-            uiElements.Add(new ResourcePanel(this, new Vector2(GraphicsDevice.Viewport.Bounds.Width - 210, 10), "", new Vector2(200, 50)));
+            uiElements.Add(new ResourcePanel(this, new Vector2(GraphicsDevice.Viewport.Bounds.Width - 200, 10), "", new Vector2(200, 50)));
+            uiElements.Add(new PopulationPanel(this, new Vector2(GraphicsDevice.Viewport.Bounds.Width - 200, 60), "/", new Vector2(200, 50)));
             uiElements.Add(new UnitPanel(this, new Vector2(GraphicsDevice.Viewport.Bounds.Width - 100, GraphicsDevice.Viewport.Bounds.Height - 100), "Unit"));
             uiElements.Add(new HousePanel(this, new Vector2(GraphicsDevice.Viewport.Bounds.Width - 200, GraphicsDevice.Viewport.Bounds.Height - 100), "House"));
             uiElements.Add(new MinePanel(this, new Vector2(GraphicsDevice.Viewport.Bounds.Width - 300, GraphicsDevice.Viewport.Bounds.Height - 100), "Mine"));

@@ -83,7 +83,7 @@ namespace ThreadMiner
         {
             if (canSee())
             {
-                Move()
+
             }
         }
     }

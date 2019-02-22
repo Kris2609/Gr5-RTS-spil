@@ -49,10 +49,10 @@ namespace ThreadMiner
 
         public virtual void DrawAnimated(GameTime gameTime, SpriteBatch spriteBatch, int spriteSheetRow = 0)
         {
-            int frameCount = spriteSheet.Width / 64;
+            int frameCount = spriteSheet.Width / 128;
             animationIndex += ((float)gameTime.ElapsedGameTime.TotalSeconds * animationFPS);
             animationIndex = (animationIndex % frameCount);
-            Rectangle frameRect = new Rectangle((spriteSheet.Width / frameCount) * (int)animationIndex, 64 * spriteSheetRow, 64, 64);
+            Rectangle frameRect = new Rectangle((spriteSheet.Width / frameCount) * (int)animationIndex, 128 * spriteSheetRow, 128, 128);
             //Rectangle temp = new Rectangle(0, 0, 64, 64);
 
             spriteBatch.Draw(
@@ -61,7 +61,7 @@ namespace ThreadMiner
                     frameRect,                                      //sourceRectangle
                     Color.Red,                                    //color
                     0f,                                             //rotation
-                    Vector2.One * 32,                               //pivot (half tex-size for middle pivot)
+                    Vector2.One * 64,                               //pivot (half tex-size for middle pivot)
                     SpriteEffects.None,                             //effects
                     (pos.Y + 5000f) / 10000f);                                          //layerDepth
         }
@@ -71,7 +71,7 @@ namespace ThreadMiner
         /// </summary>
         public Rectangle DestinationRectangle
         {
-            get => new Rectangle((int)pos.X, (int)pos.Y, 64, 64);
+            get => new Rectangle((int)pos.X, (int)pos.Y, 128, 128);
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace ThreadMiner
         /// </summary>
         public Rectangle WorldBounds
         {
-            get => new Rectangle((int)pos.X - 32, (int)pos.Y - 32, 64, 64);
+            get => new Rectangle((int)pos.X - 64, (int)pos.Y - 64, 128, 128);
         }
     }
 }

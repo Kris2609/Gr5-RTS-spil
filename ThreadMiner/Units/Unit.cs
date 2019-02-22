@@ -15,6 +15,17 @@ namespace ThreadMiner
         protected int damage;
         public static readonly int cost = 90;
         
+        public int Health { get => health;
+            set
+            {
+                if (value <= 0)
+                {
+                    currentGame.units.Remove(this);
+                }
+                health = value;
+            }
+        }
+
         protected Unit(string name, GameWorld currentGame, Vector2 pos, int animationFPS)
         {
             this.name = name;

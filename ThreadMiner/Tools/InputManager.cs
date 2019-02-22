@@ -24,6 +24,8 @@ namespace ThreadMiner
 
         bool selecting = false;
 
+        public Rectangle buildingInterSection;
+
         public Rectangle SelectionBox
         {
             get => selectionBox;
@@ -34,13 +36,13 @@ namespace ThreadMiner
         Vector2 currentSelectionDrag;
         Rectangle selectionBox;
 
+
         public MouseState oldMouseState;
         
         Vector2 mousePos;
 
         public enum RightButtonUse { PlaceWorker, ControlUnits, PlaceHouse, PlaceMine, PlaceBarrack};
         public RightButtonUse currentRightUse= RightButtonUse.ControlUnits;
-
 
         public InputManager(GameWorld gameWorld)
         {
@@ -62,6 +64,7 @@ namespace ThreadMiner
             {
                 case RightButtonUse.ControlUnits:
                     ControlUnits(gameWorld.cam);
+                    buildingInterSection = new Rectangle(0, 0, 0, 0);
                     break;
                 case RightButtonUse.PlaceWorker:
                     PlaceWorker(gameWorld.cam);
@@ -94,10 +97,24 @@ namespace ThreadMiner
                 {
                     Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.CamPos;
                     Barrack barrack = new Barrack(gameWorld, vec, "Barrack");
-                    gameWorld.buildings.Add(barrack);
+                    bool intersects = false;
+                    foreach (Building building in gameWorld.buildings)
+                    {
+                        if (barrack.WorldBounds.Intersects(building.WorldBounds))
+                        {
+                            intersects = true;
+                            buildingInterSection = Rectangle.Intersect(barrack.WorldBounds, building.WorldBounds);
+                        }
 
-                    currentRightUse = RightButtonUse.ControlUnits;
-                    gameWorld.townHall.CurrGold -= Barrack.cost;
+                    }
+                    if (!intersects)
+                    {
+                        gameWorld.buildings.Add(barrack);
+
+                        currentRightUse = RightButtonUse.ControlUnits;
+                        gameWorld.townHall.CurrGold -= Barrack.cost;
+                    }
+
                 }
 
             }
@@ -111,12 +128,24 @@ namespace ThreadMiner
                 {
                     Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.CamPos;
                     House house = new House(gameWorld, vec, "House");
-                    gameWorld.buildings.Add(house);
+                    bool intersects = false;
+                    foreach (Building building in gameWorld.buildings)
+                    {
+                        if (house.WorldBounds.Intersects(building.WorldBounds))
+                        {
+                            intersects = true;
+                            buildingInterSection = Rectangle.Intersect(house.WorldBounds, building.WorldBounds);
+                        }
 
-                    currentRightUse = RightButtonUse.ControlUnits;
-                    gameWorld.townHall.CurrGold -= House.cost;
+                    }
+                    if (!intersects)
+                    {
+                        gameWorld.buildings.Add(house);
+
+                        currentRightUse = RightButtonUse.ControlUnits;
+                        gameWorld.townHall.CurrGold -= House.cost;
+                    }
                 }
-
             }
         }
 
@@ -128,10 +157,23 @@ namespace ThreadMiner
                 {
                     Vector2 vec = (mousePos - Camera.HalfSize) * (1f / cam.Zoom) + cam.CamPos;
                     Mine mine = new Mine(gameWorld, vec, "Mine");
-                    gameWorld.buildings.Add(mine);
+                    bool intersects = false;
+                    foreach (Building building in gameWorld.buildings)
+                    {
+                        if (mine.WorldBounds.Intersects(building.WorldBounds))
+                        {
+                            intersects = true;
+                            buildingInterSection = Rectangle.Intersect(mine.WorldBounds, building.WorldBounds);
+                        }
 
-                    currentRightUse = RightButtonUse.ControlUnits;
-                    gameWorld.townHall.CurrGold -= Mine.cost;
+                    }
+                    if (!intersects)
+                    {
+                        gameWorld.buildings.Add(mine);
+
+                        currentRightUse = RightButtonUse.ControlUnits;
+                        gameWorld.townHall.CurrGold -= Mine.cost;
+                    }
                 }
             }
         }

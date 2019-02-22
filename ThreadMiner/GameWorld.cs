@@ -166,7 +166,8 @@ namespace ThreadMiner
                     }
                 }
             }
-            
+
+            spriteBatch.Draw(debugRectangle, inputManager.buildingInterSection, new Color(255, 0, 0, 1));
 
             spriteBatch.End();
 

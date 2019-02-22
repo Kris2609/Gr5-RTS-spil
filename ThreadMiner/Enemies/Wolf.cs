@@ -27,14 +27,26 @@ namespace ThreadMiner
             {
                 if (Vector2.Distance(unit.Pos, pos)<sightRange)
                 {
-                    target = unit;
+                    if (target == null && target.Health <= 0 && unit != null && unit.Health > 0)
+                    {
+                        target = unit;
+                    }
                     return false;
                 }
             }
             return false;
         }
 
-        
+        bool canAttack(Unit unit)
+        {
+            return (unit.Pos - pos).Length() < 64;
+        }
+
+        public void Attack()
+        {
+            target.Health -= damage;
+        }
+
         public virtual Vector2 CalcTowards(Vector2 target, GameTime gameTime)
         {
             Vector2 moveVec = target - pos;
@@ -81,10 +93,15 @@ namespace ThreadMiner
 
         public override void Update(GameTime gameTime)
         {
+            if (canAttack(target))
+            {
+                Attack();
+            }
             if (canSee())
             {
-
+                Move(target.Pos, gameTime);
             }
+            
         }
     }
 }

@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<<<<<<< Updated upstream
   <SourceFile>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/UnitIcon.png</SourceFile>
   <SourceTime>2019-02-21T19:08:55.750502+01:00</SourceTime>
   <DestFile>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/UnitIcon.xnb</DestFile>
   <DestTime>2019-02-22T05:32:10.9355078+01:00</DestTime>
+=======
+  <SourceFile>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/UnitIcon.png</SourceFile>
+  <SourceTime>2019-02-21T17:56:15.2597357+01:00</SourceTime>
+  <DestFile>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/bin/Windows/UnitIcon.xnb</DestFile>
+  <DestTime>2019-02-22T05:23:07.6198372+01:00</DestTime>
+>>>>>>> Stashed changes
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

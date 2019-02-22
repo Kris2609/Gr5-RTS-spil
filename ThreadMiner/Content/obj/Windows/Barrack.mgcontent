@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<<<<<<< Updated upstream
   <SourceFile>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/Barrack.png</SourceFile>
   <SourceTime>2019-02-22T01:57:58.8353523+01:00</SourceTime>
   <DestFile>C:/Github Projects/Gr5-RTS-spil/ThreadMiner/Content/bin/Windows/Barrack.xnb</DestFile>
   <DestTime>2019-02-22T05:32:09.53631+01:00</DestTime>
+=======
+  <SourceFile>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/Barrack.png</SourceFile>
+  <SourceTime>2019-02-22T04:25:55.0997008+01:00</SourceTime>
+  <DestFile>C:/Users/Dion/Documents/Dania Projekter/Technology - Threads/ThreadMiner/Content/bin/Windows/Barrack.xnb</DestFile>
+  <DestTime>2019-02-22T05:23:06.9577993+01:00</DestTime>
+>>>>>>> Stashed changes
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -31,6 +31,11 @@ namespace ThreadMiner
             get => new Rectangle((int)pos.X, (int)pos.Y, sprite.Bounds.Width, sprite.Bounds.Height);
         }
 
+        public virtual Rectangle CostRectangle
+        {
+            get => new Rectangle(DestinationRectangle.X, (int)(DestinationRectangle.Y / 1.15f), DestinationRectangle.Width, DestinationRectangle.Height / 2);
+        }
+
         /// <summary>
         /// Gets the actual corner positions of the texture on the screen.
         /// </summary>

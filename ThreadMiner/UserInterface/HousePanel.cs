@@ -12,6 +12,7 @@ namespace ThreadMiner
     class HousePanel : UIElement
     {
         Texture2D houseIconSprite;
+        Texture2D goldIconSprite;
         SpriteFont spriteFont;
         private string text;
 
@@ -20,6 +21,7 @@ namespace ThreadMiner
             this.text = text;
             base.sprite = currentGame.Content.Load<Texture2D>("Panel");
             houseIconSprite = currentGame.Content.Load<Texture2D>("WorkerIcon");
+            goldIconSprite = currentGame.Content.Load<Texture2D>("GoldIcon");
             spriteFont = currentGame.Content.Load<SpriteFont>("Default");
         }
 
@@ -74,6 +76,41 @@ namespace ThreadMiner
                 1,
                 SpriteEffects.None,
                 0.1f);
+
+            if (ScreenBounds.Contains(currentGame.inputManager.mouseState.Position))
+            {
+                spriteBatch.Draw(
+                        sprite,                                 //texture
+                        CostRectangle,                   //destinationRectangle (pos, size)
+                        null,                                   //sourceRectangle
+                        col,                                    //color
+                        0f,                                     //rotation
+                        Vector2.Zero,                           //pivot (half tex-size for middle pivot)
+                        SpriteEffects.None,                     //effects
+                        0);                                     //layerDepth
+                                                                //
+                spriteBatch.Draw(
+                        goldIconSprite,                                 //texture
+                        new Rectangle(CostRectangle.X + 25, CostRectangle.Center.Y, (int)(goldIconSprite.Width / 2f), (int)(goldIconSprite.Height / 2f)),                  //destinationRectangle (pos, size)
+                        null,                                   //sourceRectangle
+                        col,                                    //color
+                        0f,                                     //rotation
+                        new Vector2(goldIconSprite.Width / 2, goldIconSprite.Height / 2),                           //pivot (half tex-size for middle pivot)
+                        SpriteEffects.None,                     //effects
+                        0);                                     //layerDepth
+                                                                //
+
+                spriteBatch.DrawString(
+                        spriteFont,
+                        House.cost.ToString("N0"),
+                        new Vector2(CostRectangle.X + CostRectangle.Width - 20, CostRectangle.Center.Y),
+                        Color.DarkKhaki,
+                        0,
+                        spriteFont.MeasureString(text) / 2,
+                        1,
+                        SpriteEffects.None,
+                        0.1f);
+            }
 
         }
     }
